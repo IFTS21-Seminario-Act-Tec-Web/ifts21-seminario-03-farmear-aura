@@ -1,0 +1,806 @@
+/* ============================================================
+   FARMEAR AURA — styles.css
+   Identidad visual personalizada sobre Bootstrap 5
+
+   Bootstrap provee la estructura (grid, navbar, botones,
+   formularios). Este archivo define quién ES esta marca:
+   colores, tipografía, efectos y componentes propios.
+
+   Convención de nombres: clases propias con prefijo fa-
+   Así queda claro en el HTML qué es Bootstrap y qué es nuestro.
+   ============================================================ */
+
+
+/* ============================================================
+   1. VARIABLES Y BASE
+   ============================================================ */
+
+:root {
+  --gold:  #c9a227;
+  --gold2: #e2bb3d;
+  --paper: #f1eee8;
+  --dark:  #11101a;
+  --nav-h: 76px;    /* altura de la navbar fija */
+}
+
+html {
+  scroll-behavior: smooth;
+
+  /* scroll-padding-top compensa la navbar fija:
+     cuando hacemos clic en un anchor (#salas), el navegador
+     deja un espacio arriba igual a la altura del nav.
+     Sin esto, el título de la sección quedaría oculto detrás de la navbar. */
+  scroll-padding-top: var(--nav-h);
+}
+
+body {
+  font-family: Raleway, Arial, sans-serif;
+  background: #0d0d1a;
+  color: #eee8f2;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ============================================================
+   2. TIPOGRAFÍA — marca
+   ============================================================ */
+
+.fa-brand {
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.fa-brand span,
+.fa-brand b {
+  color: var(--gold);
+}
+
+
+/* ============================================================
+   3. NAVBAR
+   Sobreescribimos los defaults de Bootstrap (.navbar, .nav-link)
+   con nuestra identidad visual.
+   ============================================================ */
+
+.fa-navbar {
+  /* glassmorphism: fondo semitransparente con desenfoque */
+  background: rgba(13, 13, 26, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(201, 162, 39, 0.16);
+  min-height: var(--nav-h);
+}
+
+/* Links del nav: override de Bootstrap .nav-link */
+.fa-nav-link {
+  font-family: Cinzel, serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #bbb5c2 !important;  /* !important porque Bootstrap asigna color con alta especificidad */
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  transition: color .2s;
+}
+
+.fa-nav-link:hover,
+.fa-nav-link.active {
+  /* .active es añadida por el IntersectionObserver en main.js */
+  color: var(--gold2) !important;
+}
+
+/* Botón CTA "RESERVAR" en la nav */
+.fa-nav-cta {
+  font-family: Cinzel, serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--gold) !important;
+  padding: 10px 15px !important;
+  border: 1px solid #8c711f;
+  border-radius: 8px;
+  transition: color .2s, border-color .2s;
+}
+
+.fa-nav-cta:hover {
+  color: var(--gold2) !important;
+  border-color: var(--gold2);
+}
+
+/* Hamburguesa personalizada: reemplazamos el ícono de Bootstrap */
+.fa-toggler {
+  background: none;
+  border: 0;
+  padding: 4px;
+  box-shadow: none !important;  /* Bootstrap le agrega un outline al focus */
+}
+
+.fa-toggler span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+  margin: 5px 0;
+}
+
+/* Menú desplegado en mobile (Bootstrap .collapse activo) */
+@media (max-width: 991px) {
+  .fa-navbar .navbar-collapse {
+    background: rgba(13, 13, 26, 0.97);
+    border: 1px solid rgba(201, 162, 39, 0.2);
+    border-radius: 15px;
+    padding: 12px;
+    margin-top: 10px;
+  }
+
+  .fa-nav-link,
+  .fa-nav-cta {
+    padding: 12px !important;
+    display: block;
+  }
+}
+
+
+/* ============================================================
+   4. UTILIDADES COMPARTIDAS
+   ============================================================ */
+
+/* Eyebrow: etiqueta pequeña sobre los títulos */
+.fa-eyebrow {
+  display: block;
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.fa-eyebrow-dark {
+  color: #8b6e1d;
+}
+
+/* Títulos grandes de sección (h2) */
+.fa-section h2,
+.fa-experience h2,
+.fa-booking h2,
+.fa-contact h2,
+.fa-rooms h2 {
+  font: 900 clamp(36px, 6vw, 80px)/0.92 Cinzel, serif;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.fa-section h2 span,
+.fa-experience h2 span,
+.fa-booking h2 span,
+.fa-contact h2 span,
+.fa-rooms h2 span {
+  color: var(--gold);
+}
+
+/* ─── Botones personalizados ───────────────────────────────────
+   Bootstrap .btn provee la base: display inline-flex,
+   cursor pointer, transition, font-size heredado.
+   Nuestras clases fa-btn-* añaden los colores de la marca.
+   ────────────────────────────────────────────────────────── */
+.fa-btn {
+  min-height: 47px;
+  padding: 0 18px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  border-radius: 9px;
+  border: 0;
+}
+
+.fa-btn-gold {
+  background: var(--gold);
+  color: #11101a;
+}
+.fa-btn-gold:hover {
+  background: var(--gold2);
+  color: #11101a;
+}
+
+.fa-btn-outline {
+  border: 1px solid rgba(255, 255, 255, .3);
+  background: rgba(255, 255, 255, .04);
+  color: #fff;
+}
+.fa-btn-outline:hover {
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+}
+
+.fa-btn-dark {
+  background: #15141c;
+  color: #fff;
+}
+.fa-btn-dark:hover {
+  background: #1e1c2a;
+  color: #fff;
+}
+
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+
+.fa-hero {
+  min-height: 850px;
+  height: 100svh;     /* svh = "small viewport height", más confiable en mobile */
+  max-height: 950px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Capas de la hero: background + overlay, ambas en position: absolute */
+.fa-hero-bg,
+.fa-hero-overlay {
+  position: absolute;
+  inset: 0;           /* shorthand para top/right/bottom/left: 0 */
+}
+
+.fa-hero-bg {
+  background: url("https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=2200&q=85") center / cover;
+  animation: fa-zoom 18s alternate infinite;
+}
+
+/* Overlay: dos gradientes en capas para oscurecer los bordes */
+.fa-hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(7,7,15,.97), rgba(7,7,15,.7) 50%, rgba(7,7,15,.25)),
+    linear-gradient(0deg, rgba(7,7,15,.9), transparent 55%);
+}
+
+@keyframes fa-zoom {
+  to { transform: scale(1.08); }
+}
+
+.fa-hero-content {
+  position: relative;
+  z-index: 2;   /* sobre las capas bg y overlay */
+  padding-top: calc(var(--nav-h) + 20px);
+}
+
+.fa-hero h1 {
+  font: 900 clamp(46px, 7vw, 96px)/0.92 Cinzel, serif;
+  text-transform: uppercase;
+  margin: 16px 0 22px;
+}
+
+.fa-hero h1 span { color: var(--gold); }
+
+.fa-hero p {
+  max-width: 570px;
+  color: #aaa4b2;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+.fa-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.fa-stats {
+  display: flex;
+  gap: 40px;
+}
+
+.fa-stats div {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-stats strong {
+  font: 800 27px Cinzel, serif;
+}
+
+.fa-stats small {
+  font-size: 8px;
+  color: #77717e;
+  letter-spacing: 0.1em;
+}
+
+/* Tarjeta "MISIÓN ABIERTA" (columna derecha del hero) */
+.fa-mission {
+  padding: 27px;
+  border: 1px solid rgba(201, 162, 39, .33);
+  border-radius: 20px;
+  background: rgba(12, 12, 23, .67);
+  backdrop-filter: blur(12px);
+}
+
+.fa-mission > small {
+  display: block;
+  color: var(--gold);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+}
+
+.fa-mission-icon {
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(201, 162, 39, .33);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: 24px 0 17px;
+}
+
+.fa-mission h2 {
+  font: 700 31px/1 Cinzel, serif;
+}
+
+.fa-mission h2 span { color: var(--gold); }
+
+.fa-mission p {
+  color: #77717e;
+  font-size: 10px;
+  margin: 12px 0 18px;
+}
+
+.fa-mission a {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+
+/* ============================================================
+   6. SALAS
+   ============================================================ */
+
+.fa-section {
+  padding: 105px 0;
+}
+
+.fa-rooms {
+  background: var(--paper);
+  color: #1c1a20;
+}
+
+.fa-rooms p {
+  color: #6d6870;
+  font-size: 13px;
+}
+
+/* Card de sala: Bootstrap col- maneja el ancho,
+   fa-room maneja la apariencia */
+.fa-room {
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  color: #fff;
+}
+
+.fa-room-bg,
+.fa-room-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.fa-room-bg {
+  background-size: cover;
+  background-position: center;
+  transition: transform .5s;
+}
+
+.fa-room:hover .fa-room-bg {
+  transform: scale(1.07);
+}
+
+/* Una clase por sala para la imagen de fondo */
+.fa-room-1 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=900&q=80"); }
+.fa-room-2 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"); }
+.fa-room-3 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80"); }
+.fa-room-4 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=80"); }
+
+.fa-room-shade {
+  background: linear-gradient(0deg, rgba(8,8,15,.95), rgba(8,8,15,.06) 70%);
+}
+
+.fa-room-info {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.fa-room-info small {
+  display: block;
+  color: var(--gold2);
+  font-size: 8px;
+  font-weight: 800;
+}
+
+.fa-room-info h3 {
+  font: 700 24px/1 Cinzel, serif;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+.fa-room-info p {
+  font-size: 10px;
+  color: rgba(255,255,255,.66);
+  margin-top: 10px;
+}
+
+.fa-room-info b {
+  display: block;
+  border-top: 1px solid rgba(255,255,255,.13);
+  margin-top: 13px;
+  padding-top: 10px;
+  font-size: 9px;
+}
+
+
+/* ============================================================
+   7. EXPERIENCIA
+   ============================================================ */
+
+.fa-experience {
+  padding: 105px 0;
+  background: #181626;
+}
+
+.fa-experience h2 { margin: 16px 0 20px; }
+
+.fa-experience p {
+  color: rgba(255,255,255,.58);
+  font-size: 13px;
+}
+
+.fa-exp-image {
+  min-height: 500px;
+  border-radius: 22px;
+  background: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1300&q=85") center / cover;
+}
+
+.fa-points {
+  display: flex;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.fa-points span {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 22px;
+  color: var(--gold);
+}
+
+.fa-points b {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.fa-points small {
+  font-size: 9px;
+  color: rgba(255,255,255,.46);
+}
+
+
+/* ============================================================
+   8. PRECIOS
+   ============================================================ */
+
+.fa-pricing {
+  background: #e9e5dd;
+  color: #1c1a20;
+}
+
+.fa-pricing p {
+  color: #6d6870;
+  font-size: 13px;
+}
+
+/* fa-price-card: Bootstrap col- controla el ancho */
+.fa-price-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border: 1px solid #d5cfc5;
+  border-radius: 19px;
+  background: #fffdf9;
+  height: 100%;   /* asegura altura igual entre cards en la misma fila */
+}
+
+.fa-price-featured {
+  background: #12111c;
+  color: #fff;
+  transform: translateY(-8px);  /* eleva visualmente la card destacada */
+}
+
+.fa-price-card > em {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: var(--gold);
+  color: #111;
+  padding: 5px 8px;
+  border-radius: 99px;
+  font: 800 7px Raleway, sans-serif;
+  text-transform: uppercase;
+  font-style: normal;
+}
+
+.fa-price-card > small {
+  color: #886c1c;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.fa-price-featured > small { color: var(--gold); }
+
+.fa-price-card h3 {
+  font: 700 25px/1 Cinzel, serif;
+  text-transform: uppercase;
+  margin: 11px 0 17px;
+}
+
+.fa-price-card strong { font: 900 38px Cinzel, serif; }
+
+.fa-price-card strong i {
+  font: 400 9px Raleway, sans-serif;
+  color: #817c84;
+}
+
+.fa-price-featured strong i { color: rgba(255,255,255,.5); }
+
+.fa-price-card ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  margin: 25px 0;
+  flex: 1;  /* empuja el botón hacia abajo */
+}
+
+.fa-price-card li { font-size: 10px; color: #77727a; }
+.fa-price-featured li { color: rgba(255,255,255,.53); }
+
+.fa-note { color: #817b80; font-size: 9px; }
+
+
+/* ============================================================
+   9. RESERVAS
+   ============================================================ */
+
+.fa-booking {
+  padding: 100px 0;
+  background: var(--gold);
+  color: #11101a;
+}
+
+.fa-booking h2 { margin: 16px 0 20px; }
+
+.fa-booking p {
+  max-width: 550px;
+  color: #574713;
+  font-size: 13px;
+}
+
+.fa-steps {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.fa-steps span { font-size: 9px; text-transform: uppercase; }
+.fa-steps b { display: block; font: 700 21px Cinzel, serif; }
+
+.fa-booking-box {
+  padding: 28px;
+  background: #12111c;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.fa-lock { font-size: 24px; }
+
+.fa-booking-box h3 {
+  font: 700 25px Cinzel, serif;
+  text-transform: uppercase;
+  margin-top: 17px;
+}
+
+.fa-booking-box p {
+  color: rgba(255,255,255,.44);
+  margin: 10px 0 20px;
+  font-size: 10px;
+}
+
+#demoMsg {
+  display: block;
+  min-height: 18px;
+  color: var(--gold);
+  font-size: 9px;
+  text-align: center;
+  margin-top: 8px;
+}
+
+
+/* ============================================================
+   10. CONTACTO
+   ============================================================ */
+
+.fa-contact {
+  background: var(--paper);
+  color: #1c1a20;
+}
+
+.fa-contact p { color: #6d6870; font-size: 13px; }
+
+.fa-contact-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  margin-top: 25px;
+  color: #4f4a51;
+  font-size: 11px;
+}
+
+.fa-wa {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 25px;
+  padding: 11px 14px;
+  border: 1px dashed #b9b1a7;
+  border-radius: 12px;
+  color: #77716b;
+}
+
+.fa-wa small { display: block; font-size: 8px; }
+
+/* Formulario
+   Bootstrap .form-control provee: width 100%, padding,
+   border, border-radius, transition de focus.
+   Nosotros sobreescribimos colores. */
+.fa-form {
+  padding: 30px;
+  border: 1px solid #d8d1c8;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(33,29,35,.05);
+}
+
+.fa-label {
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1c1a20 !important;
+  margin-bottom: 6px !important;
+}
+
+/* Override de Bootstrap .form-control con los colores de Farmear */
+.fa-input {
+  background: #fcfbf8 !important;
+  border-color: #ded9d2 !important;
+  font-size: 11px !important;
+  border-radius: 9px !important;
+  color: #1c1a20 !important;
+}
+
+.fa-input:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 4px rgba(201,162,39,.13) !important;
+  background: #fff !important;
+}
+
+#formMsg {
+  display: block;
+  min-height: 18px;
+  color: #2d7a4e;   /* verde: mensaje de éxito */
+  font-size: 9px;
+  margin-top: 8px;
+}
+
+
+/* ============================================================
+   11. FOOTER
+   ============================================================ */
+
+.fa-footer {
+  padding: 25px 0;
+  background: #0d0d1a;
+}
+
+.fa-footer p,
+.fa-footer span {
+  font-size: 8px;
+  color: rgba(255,255,255,.38);
+}
+
+
+/* ============================================================
+   12. BOTÓN VOLVER ARRIBA
+   ============================================================ */
+
+.fa-top-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 42px;
+  height: 42px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #11101a;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 100;
+
+  /* Oculto por defecto; main.js añade la clase .visible */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s, visibility .25s;
+}
+
+.fa-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* ============================================================
+   13. RESPONSIVE — complementa los breakpoints de Bootstrap
+   Bootstrap maneja: columnas, navbar collapse, d-none d-lg-block
+   Nosotros manejamos: alturas, padding, comportamientos custom
+   ============================================================ */
+
+@media (max-width: 991px) {
+  .fa-exp-image { min-height: 400px; }
+  .fa-price-featured { transform: none; }
+}
+
+@media (max-width: 767px) {
+  .fa-section,
+  .fa-experience,
+  .fa-booking {
+    padding: 75px 0;
+  }
+
+  .fa-room { height: 420px; }
+
+  .fa-hero h1 { font-size: clamp(48px, 14vw, 72px); }
+
+  .fa-actions { flex-direction: column; }
+  .fa-actions .btn { width: 100%; }
+
+  .fa-stats { justify-content: space-between; gap: 10px; }
+
+  .fa-steps { display: grid; gap: 12px; }
+}
+
+/* Respeta la preferencia de accesibilidad "reducir movimiento" */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

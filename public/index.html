@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farmear Aura | Escape Room</title>
+  <meta name="description" content="Farmear Aura: escape rooms inmersivos en Buenos Aires.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- =====================================================
+       Bootstrap 5 CSS — andamiaje estructural
+       Provee: grid (container/row/col), navbar, botones,
+       formularios, utilidades de espaciado y display.
+       ===================================================== -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons — íconos vía CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- =====================================================
+       CSS personalizado — identidad visual de Farmear Aura
+       Provee: colores, tipografía, efectos, componentes
+       propios. Las clases propias usan el prefijo fa-
+       ===================================================== -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="top">
+
+
+  <!-- =====================================================
+       NAVBAR
+       Bootstrap: navbar navbar-expand-lg fixed-top
+         → controla el colapso en mobile, la posición fija
+           y el breakpoint de expansión (lg = 992px)
+       Custom: fa-navbar, fa-brand, fa-nav-link, fa-nav-cta
+         → colores, tipografía, efecto glassmorphism
+       ===================================================== -->
+  <nav class="navbar navbar-expand-lg fixed-top fa-navbar">
+    <div class="container">
+
+      <a class="navbar-brand fa-brand" href="#inicio">
+        <span>✦</span> FARMEAR <b>AURA</b>
+      </a>
+
+      <!-- Bootstrap maneja el toggle de este botón automáticamente
+           mediante data-bs-toggle y data-bs-target -->
+      <button class="navbar-toggler fa-toggler" type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navLinks"
+              aria-controls="navLinks"
+              aria-expanded="false"
+              aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navLinks">
+        <!-- ms-auto empuja los links hacia la derecha -->
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <!-- data-section es leído por el IntersectionObserver en main.js -->
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio"   data-section="inicio">HOME</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas"    data-section="salas">SALAS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios"  data-section="precios">PRECIOS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-cta"  href="#reservas">RESERVAR</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <main>
+
+    <!-- ===================================================
+         HERO
+         Bootstrap: container, row, col-lg-8, col-lg-4,
+           d-none d-lg-block (ocultar tarjeta en mobile)
+         Custom: fa-hero, fa-hero-bg, fa-hero-overlay,
+           fa-mission, fa-stats, fa-actions
+         =================================================== -->
+    <section class="fa-hero" id="inicio">
+      <div class="fa-hero-bg"></div>
+      <div class="fa-hero-overlay"></div>
+
+      <div class="container fa-hero-content">
+        <div class="row align-items-end">
+
+          <div class="col-lg-8">
+            <span class="fa-eyebrow">✦ ESCAPE ROOM · BUENOS AIRES</span>
+            <h1>Entrá al misterio.<br><span>Escapá si podés.</span></h1>
+            <p>Una experiencia inmersiva donde cada pista importa, cada segundo cuenta y el equipo tiene que pensar como uno.</p>
+            <div class="fa-actions">
+              <a class="btn fa-btn fa-btn-gold" href="#reservas">🔑 Reservar aventura</a>
+              <a class="btn fa-btn fa-btn-outline" href="#salas">Descubrir las salas ↓</a>
+            </div>
+            <div class="fa-stats">
+              <div><strong>4</strong><small>SALAS</small></div>
+              <div><strong>2–8</strong><small>JUGADORES</small></div>
+              <div><strong>45–90'</strong><small>AVENTURA</small></div>
+            </div>
+          </div>
+
+          <!-- d-none d-lg-block: Bootstrap oculta este bloque en
+               pantallas menores a lg (992px) -->
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="fa-mission">
+              <small>MISIÓN ABIERTA</small>
+              <div class="fa-mission-icon">🔒</div>
+              <h2>¿Podés<br><span>escapar?</span></h2>
+              <p>Elegí una sala y descubrí cuánto dura tu suerte.</p>
+              <a href="#reservas">Elegir sala →</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         SALAS
+         Bootstrap: row g-3, col-lg-3 col-md-6
+           → 4 columnas en desktop, 2 en tablet, 1 en mobile
+         Custom: fa-room, fa-room-bg, fa-room-shade,
+           fa-room-info, fa-room-1 … fa-room-4
+         =================================================== -->
+    <section class="fa-section fa-rooms" id="salas">
+      <div class="container">
+
+        <div class="row align-items-end mb-5">
+          <div class="col-lg-6">
+            <span class="fa-eyebrow fa-eyebrow-dark">ELEGÍ TU DESAFÍO</span>
+            <h2>Nuestras<br><span>salas.</span></h2>
+          </div>
+          <div class="col-lg-6">
+            <p>Cuatro historias. Cuatro desafíos. Una sola pregunta: ¿van a lograr salir antes de que se termine el tiempo?</p>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-lg-3 col-md-6">
+            <article class="fa-room fa-room-1">
+              <div class="fa-room-bg"></div>
+              <div class="fa-room-shade"></div>
+              <div class="fa-room-info">
+                <small>01 · DIFICULTAD ALTA</small>
+                <h3>La Cripta<br>del Alquimista</h3>
+                <p>Un laboratorio oculto, una fórmula imposible y 60 minutos para descubrir la salida.</p>
+                <b>2–6 personas · 60'</b>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <article class="fa-room fa-room-2">
+              <div class="fa-room-bg"></div>
+              <div class="fa-room-shade"></div>
+              <div class="fa-room-info">
+                <small>02 · DIFICULTAD MEDIA</small>
+                <h3>Estación<br>Abandonada</h3>
+                <p>Un tren detenido en el tiempo. Una última señal. Y algo que no debería estar ahí.</p>
+                <b>2–8 personas · 75'</b>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <article class="fa-room fa-room-3">
+              <div class="fa-room-bg"></div>
+              <div class="fa-room-shade"></div>
+              <div class="fa-room-info">
+                <small>03 · DIFICULTAD EXTREMA</small>
+                <h3>El Último<br>Grimorio</h3>
+                <p>Magia, símbolos y secretos prohibidos. La sala para quienes quieren ir al límite.</p>
+                <b>3–6 personas · 90'</b>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-3 col-md-6">
+            <article class="fa-room fa-room-4">
+              <div class="fa-room-bg"></div>
+              <div class="fa-room-shade"></div>
+              <div class="fa-room-info">
+                <small>04 · DIFICULTAD BAJA</small>
+                <h3>El<br>Castillo</h3>
+                <p>Una aventura fantástica pensada para que los más chicos también puedan jugar.</p>
+                <b>2–6 personas · 45'</b>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         EXPERIENCIA
+         Bootstrap: row g-5, col-lg-6, align-items-center
+         Custom: fa-experience, fa-exp-image, fa-points
+         =================================================== -->
+    <section class="fa-experience">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-6">
+            <span class="fa-eyebrow">LA EXPERIENCIA</span>
+            <h2>Misterio.<br>Adrenalina.<br><span>Equipo.</span></h2>
+            <p>Farmear Aura es mucho más que resolver acertijos. Es entrar en una historia, asumir un desafío y descubrir cómo funciona tu equipo cuando el reloj empieza a correr.</p>
+            <div class="fa-points">
+              <span>💡<b>Acertijos</b><small>Para pensar juntos</small></span>
+              <span>⏱<b>60 minutos</b><small>Contra el reloj</small></span>
+              <span>👁<b>Escenarios</b><small>Inmersivos</small></span>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="fa-exp-image"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         PRECIOS
+         Bootstrap: row g-3, col-lg-4 col-md-8,
+           justify-content-center, align-items-center,
+           text-center, mb-5
+         Custom: fa-pricing, fa-price-card, fa-price-featured
+         =================================================== -->
+    <section class="fa-section fa-pricing" id="precios">
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <span class="fa-eyebrow fa-eyebrow-dark">TARIFAS</span>
+          <h2>Elegí cómo<br><span>vivir la aventura.</span></h2>
+          <p>Valores ficticios para el proyecto educativo.</p>
+        </div>
+
+        <!-- align-items-center: centra verticalmente las 3 cards
+             (la del medio está elevada con transform en el CSS) -->
+        <div class="row g-3 justify-content-center align-items-center">
+
+          <div class="col-lg-4 col-md-8">
+            <article class="fa-price-card">
+              <small>EXPERIENCIA CLÁSICA</small>
+              <h3>Sesión individual</h3>
+              <strong>$25.000 <i>/persona</i></strong>
+              <ul>
+                <li>✓ Una sala a elección</li>
+                <li>✓ Game Master</li>
+                <li>✓ Hasta 8 personas</li>
+              </ul>
+              <a class="btn fa-btn fa-btn-dark" href="#reservas">Reservar</a>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <article class="fa-price-card fa-price-featured">
+              <em>Más elegido</em>
+              <small>CELEBRACIÓN</small>
+              <h3>Cumpleaños VIP</h3>
+              <strong>$220.000 <i>/evento</i></strong>
+              <ul>
+                <li>✓ Sala exclusiva 2 hs</li>
+                <li>✓ Catering básico</li>
+                <li>✓ Game Master dedicado</li>
+                <li>✓ Decoración temática</li>
+              </ul>
+              <a class="btn fa-btn fa-btn-gold" href="#contacto">Consultar</a>
+            </article>
+          </div>
+
+          <div class="col-lg-4 col-md-8">
+            <article class="fa-price-card">
+              <small>EMPRESAS</small>
+              <h3>Team Building</h3>
+              <strong>$12.000 <i>/persona</i></strong>
+              <ul>
+                <li>✓ Grupos de 8 o más</li>
+                <li>✓ Rotación entre salas</li>
+                <li>✓ Informe de dinámica</li>
+                <li>✓ Salón posterior</li>
+              </ul>
+              <a class="btn fa-btn fa-btn-dark" href="#contacto">Consultar</a>
+            </article>
+          </div>
+
+        </div>
+
+        <p class="text-center fa-note mt-4">
+          * Precios ficticios. Sujetos a actualización. Menores de 13 años deben ir acompañados por un adulto.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         RESERVAS
+         Bootstrap: row g-5, col-lg-7, col-lg-5,
+           align-items-center, w-100
+         Custom: fa-booking, fa-booking-box, fa-steps
+         =================================================== -->
+    <section class="fa-booking" id="reservas">
+      <div class="container">
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7">
+            <span class="fa-eyebrow">RESERVAS ONLINE</span>
+            <h2>La cuenta regresiva<br><span>empieza acá.</span></h2>
+            <p>En esta primera etapa el sistema es estático. Más adelante este módulo se conectará con FastAPI y una base de datos.</p>
+            <div class="fa-steps">
+              <span><b>01</b> Elegí una sala</span>
+              <span><b>02</b> Fecha y turno</span>
+              <span><b>03</b> Confirmá tu equipo</span>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="fa-booking-box">
+              <div class="fa-lock">🔑</div>
+              <h3>Reservá tu aventura</h3>
+              <p>El formulario completo de reservas se implementará en la etapa de backend.</p>
+              <!-- w-100: utilidad Bootstrap para ancho completo -->
+              <button id="demoBtn" class="btn fa-btn fa-btn-gold w-100">Probar reserva</button>
+              <output id="demoMsg"></output>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         CONTACTO
+         Bootstrap: row g-5, col-lg-5, col-lg-7
+           form-control (base de inputs), form-label,
+           row g-3 mb-3, col-md-6, mb-3
+         Custom: fa-contact, fa-form, fa-label, fa-input,
+           fa-contact-list, fa-wa
+         =================================================== -->
+    <section class="fa-section fa-contact" id="contacto">
+      <div class="container">
+        <div class="row g-5">
+
+          <!-- Info -->
+          <div class="col-lg-5">
+            <span class="fa-eyebrow fa-eyebrow-dark">CONTACTO</span>
+            <h2>¿Te animás<br><span>a jugar?</span></h2>
+            <p>Consultanos por salas, cumpleaños, eventos corporativos o cualquier aventura.</p>
+            <ul class="fa-contact-list">
+              <li>✉ hola@farmearaura.com.ar</li>
+              <li>☎ 011-0000-0000</li>
+              <li>◎ @farmearaura</li>
+              <li>⌖ Buenos Aires, Argentina</li>
+              <li>◷ Martes a domingo · 14:00 a 23:00</li>
+            </ul>
+            <div class="fa-wa">
+              ◉ <span><b>WhatsApp</b><small>Se habilitará en una próxima etapa</small></span>
+            </div>
+          </div>
+
+          <!-- Formulario -->
+          <div class="col-lg-7">
+            <form id="contactForm" class="fa-form" novalidate>
+
+              <!-- Bootstrap row + col divide el formulario en dos columnas -->
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <!-- form-label: Bootstrap; fa-label: tipografía custom -->
+                  <label class="form-label fa-label">Nombre</label>
+                  <!-- form-control: Bootstrap (padding, borde, outline);
+                       fa-input: colores y borde propios de Farmear -->
+                  <input class="form-control fa-input" name="name"
+                         required minlength="3" placeholder="Nombre completo">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label fa-label">Email</label>
+                  <input class="form-control fa-input" name="email"
+                         type="email" required placeholder="tu@email.com">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label fa-label">Consulta</label>
+                <textarea class="form-control fa-input" name="message"
+                          required minlength="10" rows="6"
+                          placeholder="Contanos qué sala te interesa..."></textarea>
+              </div>
+
+              <button type="submit" class="btn fa-btn fa-btn-gold">
+                Enviar consulta →
+              </button>
+              <output id="formMsg"></output>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       Bootstrap: row, col-lg-4, align-items-center,
+         text-center, text-lg-start, text-lg-end
+       Custom: fa-footer, fa-brand
+       ===================================================== -->
+  <footer class="fa-footer">
+    <div class="container">
+      <div class="row align-items-center text-center g-3">
+        <div class="col-lg-4 text-lg-start">
+          <a class="fa-brand" href="#top">✦ FARMEAR <b>AURA</b></a>
+        </div>
+        <div class="col-lg-4">
+          <p class="mb-0">© <span id="year"></span> Farmear Aura · Proyecto educativo IFTS N° 21</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <span>Escape · Mystery · Team</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón volver arriba (custom, no es Bootstrap) -->
+  <button id="topBtn" class="fa-top-btn" aria-label="Volver arriba">↑</button>
+
+
+  <!-- =====================================================
+       Bootstrap 5 JS Bundle
+       Incluye Popper.js. Necesario para el navbar collapse
+       (el botón hamburguesa en mobile).
+       ===================================================== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS personalizado Farmear Aura -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>
