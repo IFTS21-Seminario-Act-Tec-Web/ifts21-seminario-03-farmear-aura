@@ -687,6 +687,32 @@ a {
   box-shadow: 0 20px 45px rgba(33,29,35,.05);
 }
 
+
+/* Formulario de reservas*/
+
+.form-reservas{
+  width: 100%;
+  max-width: 400px;         
+  margin: 0 auto;
+  padding: 28px 28px 24px;  
+
+  border: 1px solid #d8d1c8;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(33,29,35,.05);
+}
+
+.fa-input-reservas {
+  background: #fcfbf8 !important;
+  border-color: #ded9d2 !important;
+  font-size: 11px !important;
+  border-radius: 9px !important;
+  color: #1c1a20 !important;
+  width: 350px;
+}
+
+
+
 .fa-label {
   font-size: 9px !important;
   font-weight: 800 !important;
