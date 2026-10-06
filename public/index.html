@@ -131,6 +131,7 @@
            fa-room-info, fa-room-1 … fa-room-4
          =================================================== -->
     <section class="fa-section fa-rooms" id="salas">
+
       <div class="container">
 
         <div class="row align-items-end mb-5">
@@ -305,40 +306,49 @@
     </section>
 
 
-    <!-- ===================================================
-         RESERVAS
-         Bootstrap: row g-5, col-lg-7, col-lg-5,
-           align-items-center, w-100
-         Custom: fa-booking, fa-booking-box, fa-steps
-         =================================================== -->
+    <!-- FORMULARIO DE RESERVA V1 -->
     <section class="fa-booking" id="reservas">
-      <div class="container">
-        <div class="row align-items-center g-5">
 
-          <div class="col-lg-7">
-            <span class="fa-eyebrow">RESERVAS ONLINE</span>
-            <h2>La cuenta regresiva<br><span>empieza acá.</span></h2>
-            <p>En esta primera etapa el sistema es estático. Más adelante este módulo se conectará con FastAPI y una base de datos.</p>
-            <div class="fa-steps">
-              <span><b>01</b> Elegí una sala</span>
-              <span><b>02</b> Fecha y turno</span>
-              <span><b>03</b> Confirmá tu equipo</span>
-            </div>
-          </div>
+      
+      <form class="form-reservas" novalidate>
+              <div class="row g-3 mb-3">
+              <div class="col-12">
+              <label class="form-label fa-label" for="sala">Sala</label>
+                <select id="sala" name="sala" class="form-select fa-input fa-select" required>
+                <option value="">Elegí una sala</option>
+                <option value="boveda">La Cripta</option>
+                <option value="laboratorio">Estación Abandonada</option>
+                <option value="faro">El Último Grimorio</option>
+                <option value="biblioteca">El Castillo</option>
+                </select>
+              </div>
+              </div>
 
-          <div class="col-lg-5">
-            <div class="fa-booking-box">
-              <div class="fa-lock">🔑</div>
-              <h3>Reservá tu aventura</h3>
-              <p>El formulario completo de reservas se implementará en la etapa de backend.</p>
-              <!-- w-100: utilidad Bootstrap para ancho completo -->
-              <button id="demoBtn" class="btn fa-btn fa-btn-gold w-100">Probar reserva</button>
-              <output id="demoMsg"></output>
-            </div>
-          </div>
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label class="form-label fa-label">Nombre</label>
+                  <input class="form-control fa-input" name="name" required minlength="3" placeholder="Nombre">                        
+                </div>
+                
+                <div class="col-md-6">
+                  <label class="form-label fa-label">Apellido</label>
+                  <input class="form-control fa-input" name="apellido" type="text" required placeholder="Apellido">                         
+                </div>
+                
+                
+                  <label class="form-label fa-label">Teléfono</label>
+                  <input class="form-control fa-input-reservas" name="phone" type="tel" required placeholder="Teléfono">                         
+          
+               
+                  <label class="form-label fa-label">Email</label>
+                  <input class="form-control fa-input-reservas" name="email" type="email" required placeholder="Email">                         
+               
 
-        </div>
-      </div>
+              </div>
+              <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
+              
+      </form>
+
     </section>
 
 
@@ -452,6 +462,3 @@
 
 </body>
 </html>
-  <!-- =====================================================
-      Prueva para subir cambios a git
-       ===================================================== -->
