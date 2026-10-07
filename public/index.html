@@ -309,41 +309,39 @@
     <!-- FORMULARIO DE RESERVA V1 -->
     <section class="fa-booking" id="reservas">
 
-      
-      <form class="form-reservas" novalidate>
+      <form id = "formReserva" class="form-reservas" novalidate>
               <div class="row g-3 mb-3">
               <div class="col-12">
-              <label class="form-label fa-label" for="sala">Sala</label>
+              
+                <label class="form-label fa-label" for="sala">Sala</label>
                 <select id="sala" name="sala" class="form-select fa-input fa-select" required>
-                <option value="">Elegí una sala</option>
+                <option value="Elegí una sala">Elegí una sala</option>
                 <option value="boveda">La Cripta</option>
                 <option value="laboratorio">Estación Abandonada</option>
                 <option value="faro">El Último Grimorio</option>
                 <option value="biblioteca">El Castillo</option>
                 </select>
               </div>
+              
               </div>
 
               <div class="row g-3 mb-3">
                 <div class="col-md-6">
                   <label class="form-label fa-label">Nombre</label>
-                  <input class="form-control fa-input" name="name" required minlength="3" placeholder="Nombre">                        
+                  <input id = "Nombre" class="form-control fa-input" name="name" required minlength="2" placeholder="Nombre">                        
                 </div>
                 
                 <div class="col-md-6">
                   <label class="form-label fa-label">Apellido</label>
-                  <input class="form-control fa-input" name="apellido" type="text" required placeholder="Apellido">                         
+                  <input id = "Apellido" class="form-control fa-input" name="apellido" type="text" required minlength="2"  placeholder="Apellido">                         
                 </div>
                 
-                
                   <label class="form-label fa-label">Teléfono</label>
-                  <input class="form-control fa-input-reservas" name="phone" type="tel" required placeholder="Teléfono">                         
-          
+                  <input id = "Teléfono" class="form-control fa-input-reservas" name="phone" type="tel" required placeholder="Teléfono">                         
                
                   <label class="form-label fa-label">Email</label>
-                  <input class="form-control fa-input-reservas" name="email" type="email" required placeholder="Email">                         
+                  <input id = "Email" class="form-control fa-input-reservas" name="email" type="email" required placeholder="Email">                         
                
-
               </div>
               <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
               
@@ -397,16 +395,14 @@
                 </div>
                 <div class="col-md-6">
                   <label class="form-label fa-label">Email</label>
-                  <input class="form-control fa-input" name="email"
-                         type="email" required placeholder="tu@email.com">
+                  <input class="form-control fa-input" name="email" type="email" required placeholder="tu@email.com">
+                         
                 </div>
               </div>
 
               <div class="mb-3">
                 <label class="form-label fa-label">Consulta</label>
-                <textarea class="form-control fa-input" name="message"
-                          required minlength="10" rows="6"
-                          placeholder="Contanos qué sala te interesa..."></textarea>
+                <textarea class="form-control fa-input" name="message" required minlength="10" rows="6" placeholder="Contanos qué sala te interesa..."></textarea>
               </div>
 
               <button type="submit" class="btn fa-btn fa-btn-gold">
