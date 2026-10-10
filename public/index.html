@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,9 @@
   <!-- Tipografías de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- =====================================================
        Bootstrap 5 CSS — andamiaje estructural
@@ -29,6 +32,7 @@
        ===================================================== -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body id="top">
 
 
@@ -49,12 +53,8 @@
 
       <!-- Bootstrap maneja el toggle de este botón automáticamente
            mediante data-bs-toggle y data-bs-target -->
-      <button class="navbar-toggler fa-toggler" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navLinks"
-              aria-controls="navLinks"
-              aria-expanded="false"
-              aria-label="Abrir menú">
+      <button class="navbar-toggler fa-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks"
+        aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
 
@@ -62,12 +62,14 @@
         <!-- ms-auto empuja los links hacia la derecha -->
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
           <!-- data-section es leído por el IntersectionObserver en main.js -->
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio"   data-section="inicio">HOME</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas"    data-section="salas">SALAS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios"  data-section="precios">PRECIOS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-cta"  href="#reservas">RESERVAR</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio" data-section="inicio">HOME</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas" data-section="salas">SALAS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios" data-section="precios">PRECIOS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-cta" href="#reservas">RESERVAR</a></li>
         </ul>
       </div>
 
@@ -94,7 +96,8 @@
           <div class="col-lg-8">
             <span class="fa-eyebrow">✦ ESCAPE ROOM · BUENOS AIRES</span>
             <h1>Entrá al misterio.<br><span>Escapá si podés.</span></h1>
-            <p>Una experiencia inmersiva donde cada pista importa, cada segundo cuenta y el equipo tiene que pensar como uno.</p>
+            <p>Una experiencia inmersiva donde cada pista importa, cada segundo cuenta y el equipo tiene que pensar como
+              uno.</p>
             <div class="fa-actions">
               <a class="btn fa-btn fa-btn-gold" href="#reservas">🔑 Reservar aventura</a>
               <a class="btn fa-btn fa-btn-outline" href="#salas">Descubrir las salas ↓</a>
@@ -140,7 +143,8 @@
             <h2>Nuestras<br><span>salas.</span></h2>
           </div>
           <div class="col-lg-6">
-            <p>Cuatro historias. Cuatro desafíos. Una sola pregunta: ¿van a lograr salir antes de que se termine el tiempo?</p>
+            <p>Cuatro historias. Cuatro desafíos. Una sola pregunta: ¿van a lograr salir antes de que se termine el
+              tiempo?</p>
           </div>
         </div>
 
@@ -214,7 +218,8 @@
           <div class="col-lg-6">
             <span class="fa-eyebrow">LA EXPERIENCIA</span>
             <h2>Misterio.<br>Adrenalina.<br><span>Equipo.</span></h2>
-            <p>Farmear Aura es mucho más que resolver acertijos. Es entrar en una historia, asumir un desafío y descubrir cómo funciona tu equipo cuando el reloj empieza a correr.</p>
+            <p>Farmear Aura es mucho más que resolver acertijos. Es entrar en una historia, asumir un desafío y
+              descubrir cómo funciona tu equipo cuando el reloj empieza a correr.</p>
             <div class="fa-points">
               <span>💡<b>Acertijos</b><small>Para pensar juntos</small></span>
               <span>⏱<b>60 minutos</b><small>Contra el reloj</small></span>
@@ -309,42 +314,45 @@
     <!-- FORMULARIO DE RESERVA V1 -->
     <section class="fa-booking" id="reservas">
 
-      <form id = "formReserva" class="form-reservas" novalidate>
-              <div class="row g-3 mb-3">
-              <div class="col-12">
-              
-                <label class="form-label fa-label" for="sala">Sala</label>
-                <select id="sala" name="sala" class="form-select fa-input fa-select" required>
-                <option value="Elegí una sala">Elegí una sala</option>
-                <option value="boveda">La Cripta</option>
-                <option value="laboratorio">Estación Abandonada</option>
-                <option value="faro">El Último Grimorio</option>
-                <option value="biblioteca">El Castillo</option>
-                </select>
-              </div>
-              
-              </div>
+      <form id="formReserva" class="form-reservas" novalidate>
+        <div class="row g-3 mb-3">
+          <div class="col-12">
 
-              <div class="row g-3 mb-3">
-                <div class="col-md-6">
-                  <label class="form-label fa-label">Nombre</label>
-                  <input id = "Nombre" class="form-control fa-input" name="name" required minlength="2" placeholder="Nombre">                        
-                </div>
-                
-                <div class="col-md-6">
-                  <label class="form-label fa-label">Apellido</label>
-                  <input id = "Apellido" class="form-control fa-input" name="apellido" type="text" required minlength="2"  placeholder="Apellido">                         
-                </div>
-                
-                  <label class="form-label fa-label">Teléfono</label>
-                  <input id = "Teléfono" class="form-control fa-input-reservas" name="phone" type="tel" required placeholder="Teléfono">                         
-               
-                  <label class="form-label fa-label">Email</label>
-                  <input id = "Email" class="form-control fa-input-reservas" name="email" type="email" required placeholder="Email">                         
-               
-              </div>
-              <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
-              
+            <label class="form-label fa-label" for="sala">Sala</label>
+            <select id="sala" name="sala" class="form-select fa-input fa-select" required>
+              <option value="Elegí una sala">Elegí una sala</option>
+              <option value="boveda">La Cripta</option>
+              <option value="laboratorio">Estación Abandonada</option>
+              <option value="faro">El Último Grimorio</option>
+              <option value="biblioteca">El Castillo</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label fa-label">Nombre</label>
+            <input id="Nombre" class="form-control fa-input" name="name" required minlength="2" placeholder="Nombre">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fa-label">Apellido</label>
+            <input id="Apellido" class="form-control fa-input" name="apellido" type="text" required minlength="2"
+              placeholder="Apellido">
+          </div>
+
+          <label class="form-label fa-label">Teléfono</label>
+          <input id="Teléfono" class="form-control fa-input-reservas" name="phone" type="tel" required
+            placeholder="Teléfono">
+
+          <label class="form-label fa-label">Email</label>
+          <input id="Email" class="form-control fa-input-reservas" name="email" type="email" required
+            placeholder="Email">
+
+        </div>
+        <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
+
       </form>
 
     </section>
@@ -390,19 +398,19 @@
                   <label class="form-label fa-label">Nombre</label>
                   <!-- form-control: Bootstrap (padding, borde, outline);
                        fa-input: colores y borde propios de Farmear -->
-                  <input class="form-control fa-input" name="name"
-                         required minlength="3" placeholder="Nombre completo">
+                  <input class="form-control fa-input" name="name" required minlength="3" placeholder="Nombre completo">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label fa-label">Email</label>
                   <input class="form-control fa-input" name="email" type="email" required placeholder="tu@email.com">
-                         
+
                 </div>
               </div>
 
               <div class="mb-3">
                 <label class="form-label fa-label">Consulta</label>
-                <textarea class="form-control fa-input" name="message" required minlength="10" rows="6" placeholder="Contanos qué sala te interesa..."></textarea>
+                <textarea class="form-control fa-input" name="message" required minlength="10" rows="6"
+                  placeholder="Contanos qué sala te interesa..."></textarea>
               </div>
 
               <button type="submit" class="btn fa-btn fa-btn-gold">
@@ -456,5 +464,7 @@
   <!-- JS personalizado Farmear Aura -->
   <script src="assets/js/main.js"></script>
 
+  <!--Prueba lalalalalalal-->
 </body>
+
 </html>
