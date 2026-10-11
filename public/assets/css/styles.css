@@ -147,6 +147,33 @@ a {
   }
 }
 
+/* ====================================
+   ✦ FARMEAR AURA - Titulo ✦
+   ==================================== */
+
+/* Ícono ✦ fijo */
+.fa-icon {
+  color: var(--gold); /* Esta separado para que no tome los efectos de FARMEAR*/
+}
+
+/* FARMEAR: blanco fijo, hover dorado */
+.fa-farmear {
+  color: #fff !important; /*Le agregamos el important para que deje la palabra FARMEAR en blanco*/
+  transition: color .2s, text-shadow .2s;
+}
+.fa-farmear:hover {
+  color: var(--gold);
+  text-shadow: 0 0 8px var(--gold);
+}
+
+/* AURA: dorado fijo */
+.fa-aura {
+  color: var(--gold);
+}
+.fa-aura:hover {
+  color: var(--gold); /* se mantiene dorado */
+  text-shadow: none; /* sin efecto */
+}
 
 /* ============================================================
    4. UTILIDADES COMPARTIDAS
