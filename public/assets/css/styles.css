@@ -84,10 +84,11 @@ a {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #bbb5c2 !important;  /* !important porque Bootstrap asigna color con alta especificidad */
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  transition: color .2s;
+  color: #bbb5c2 !important;
+  padding: 10px 15px !important;
+  border: 1px solid transparent;      /* ← antes: #8c711f */
+  border-radius: 8px;
+  transition: color .2s, border-color .2s;
 }
 
 .fa-nav-link:hover,
@@ -102,16 +103,17 @@ a {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--gold) !important;
+  color: #bbb5c2 !important;          /* gris */
   padding: 10px 15px !important;
-  border: 1px solid #8c711f;
+  border: 1px solid transparent;      /* recuadro invisible */
   border-radius: 8px;
   transition: color .2s, border-color .2s;
 }
 
+.fa-nav-link:hover,
 .fa-nav-cta:hover {
-  color: var(--gold2) !important;
-  border-color: var(--gold2);
+  color: var(--gold) !important;
+  border-color: #8c711f;
 }
 
 /* Hamburguesa personalizada: reemplazamos el ícono de Bootstrap */
@@ -140,10 +142,20 @@ a {
     margin-top: 10px;
   }
 
-  .fa-nav-link,
+  /*.fa-nav-link,*/
+  .fa-nav-link.active {
+  color: var(--gold2) !important;
+  }
   .fa-nav-cta {
-    padding: 12px !important;
-    display: block;
+    font-family: Cinzel, serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #bbb5c2 !important;
+    padding: 10px 15px !important;
+    border: 1px solid transparent;      
+    border-radius: 8px;
+    transition: color .2s, border-color .2s;
   }
 }
 
