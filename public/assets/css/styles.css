@@ -219,6 +219,9 @@ a {
    Nuestras clases fa-btn-* añaden los colores de la marca.
    ────────────────────────────────────────────────────────── */
 .fa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 47px;
   padding: 0 18px;
   font-size: 10px;
