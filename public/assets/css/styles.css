@@ -433,10 +433,10 @@ a {
 }
 
 /* Una clase por sala para la imagen de fondo */
-.fa-room-1 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-2 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-3 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-4 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=80"); }
+.fa-room-1 .fa-room-bg { background-image: url("../img/lacripta.jfif"); }
+.fa-room-2 .fa-room-bg { background-image: url("../img/ola.jfif"); }
+.fa-room-3 .fa-room-bg { background-image: url("../img/elultimogrimorio.jpg"); }
+.fa-room-4 .fa-room-bg { background-image: url("../img/elcastillo.avif"); }
 
 .fa-room-shade {
   background: linear-gradient(0deg, rgba(8,8,15,.95), rgba(8,8,15,.06) 70%);
