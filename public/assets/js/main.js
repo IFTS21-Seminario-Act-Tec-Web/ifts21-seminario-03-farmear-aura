@@ -176,3 +176,4 @@ contactForm.addEventListener('submit', (event) => {
     formReserva.reset();
 
   });
+

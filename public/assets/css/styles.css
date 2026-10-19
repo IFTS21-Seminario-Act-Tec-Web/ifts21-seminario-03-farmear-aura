@@ -673,6 +673,7 @@ a {
    ============================================================ */
 
 .fa-contact {
+  position: relative;
   background: var(--paper);
   color: #1c1a20;
 }
@@ -737,8 +738,6 @@ a {
   color: #1c1a20 !important;
   width: 350px;
 }
-
-
 
 .fa-label {
   font-size: 9px !important;
@@ -817,6 +816,35 @@ a {
 .fa-top-btn.visible {
   opacity: 1;
   visibility: visible;
+}
+
+.whatsapp {
+      position: absolute;
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 32px;
+      text-decoration: none;
+
+      /* Estado "bajo" */
+      transform: translateY(6px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+
+.whatsapp:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  background: #20ba5a;
 }
 
 
