@@ -84,10 +84,11 @@ a {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #bbb5c2 !important;  /* !important porque Bootstrap asigna color con alta especificidad */
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  transition: color .2s;
+  color: #bbb5c2 !important;
+  padding: 10px 15px !important;
+  border: 1px solid transparent;      /* ← antes: #8c711f */
+  border-radius: 8px;
+  transition: color .2s, border-color .2s;
 }
 
 .fa-nav-link:hover,
@@ -102,16 +103,17 @@ a {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: var(--gold) !important;
+  color: #bbb5c2 !important;          /* gris */
   padding: 10px 15px !important;
-  border: 1px solid #8c711f;
+  border: 1px solid transparent;      /* recuadro invisible */
   border-radius: 8px;
   transition: color .2s, border-color .2s;
 }
 
+.fa-nav-link:hover,
 .fa-nav-cta:hover {
-  color: var(--gold2) !important;
-  border-color: var(--gold2);
+  color: var(--gold) !important;
+  border-color: #8c711f;
 }
 
 /* Hamburguesa personalizada: reemplazamos el ícono de Bootstrap */
@@ -140,13 +142,50 @@ a {
     margin-top: 10px;
   }
 
-  .fa-nav-link,
+  /*.fa-nav-link,*/
+  .fa-nav-link.active {
+  color: var(--gold2) !important;
+  }
   .fa-nav-cta {
-    padding: 12px !important;
-    display: block;
+    font-family: Cinzel, serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #bbb5c2 !important;
+    padding: 10px 15px !important;
+    border: 1px solid transparent;      
+    border-radius: 8px;
+    transition: color .2s, border-color .2s;
   }
 }
 
+/* ====================================
+   ✦ FARMEAR AURA - Titulo ✦
+   ==================================== */
+
+/* Ícono ✦ fijo */
+.fa-icon {
+  color: var(--gold); /* Esta separado para que no tome los efectos de FARMEAR*/
+}
+
+/* FARMEAR: blanco fijo, hover dorado */
+.fa-farmear {
+  color: #fff !important; /*Le agregamos el important para que deje la palabra FARMEAR en blanco*/
+  transition: color .2s, text-shadow .2s;
+}
+.fa-farmear:hover {
+  color: var(--gold);
+  text-shadow: 0 0 8px var(--gold);
+}
+
+/* AURA: dorado fijo */
+.fa-aura {
+  color: var(--gold);
+}
+.fa-aura:hover {
+  color: var(--gold); /* se mantiene dorado */
+  text-shadow: none; /* sin efecto */
+}
 
 /* ============================================================
    4. UTILIDADES COMPARTIDAS
@@ -192,6 +231,9 @@ a {
    Nuestras clases fa-btn-* añaden los colores de la marca.
    ────────────────────────────────────────────────────────── */
 .fa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 47px;
   padding: 0 18px;
   font-size: 10px;
@@ -406,10 +448,10 @@ a {
 }
 
 /* Una clase por sala para la imagen de fondo */
-.fa-room-1 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1604187351574-c75ca79f5807?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-2 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-3 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=900&q=80"); }
-.fa-room-4 .fa-room-bg { background-image: url("https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=900&q=80"); }
+.fa-room-1 .fa-room-bg { background-image: url("../img/lacripta.jfif"); }
+.fa-room-2 .fa-room-bg { background-image: url("../img/ola.jfif"); }
+.fa-room-3 .fa-room-bg { background-image: url("../img/elultimogrimorio.jpg"); }
+.fa-room-4 .fa-room-bg { background-image: url("../img/elcastillo.avif"); }
 
 .fa-room-shade {
   background: linear-gradient(0deg, rgba(8,8,15,.95), rgba(8,8,15,.06) 70%);
@@ -646,6 +688,7 @@ a {
    ============================================================ */
 
 .fa-contact {
+  position: relative;
   background: var(--paper);
   color: #1c1a20;
 }
@@ -685,6 +728,30 @@ a {
   border-radius: 20px;
   background: #fff;
   box-shadow: 0 20px 45px rgba(33,29,35,.05);
+}
+
+
+/* Formulario de reservas*/
+
+.form-reservas{
+  width: 100%;
+  max-width: 400px;         
+  margin: 0 auto;
+  padding: 28px 28px 24px;  
+
+  border: 1px solid #d8d1c8;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(33,29,35,.05);
+}
+
+.fa-input-reservas {
+  background: #fcfbf8 !important;
+  border-color: #ded9d2 !important;
+  font-size: 11px !important;
+  border-radius: 9px !important;
+  color: #1c1a20 !important;
+  width: 350px;
 }
 
 
@@ -790,6 +857,35 @@ a {
 .fa-top-btn.visible {
   opacity: 1;
   visibility: visible;
+}
+
+.whatsapp {
+      position: absolute;
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      font-size: 32px;
+      text-decoration: none;
+
+      /* Estado "bajo" */
+      transform: translateY(6px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+
+.whatsapp:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+  background: #20ba5a;
 }
 
 

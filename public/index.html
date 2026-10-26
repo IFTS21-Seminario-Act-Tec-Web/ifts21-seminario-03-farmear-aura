@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +11,9 @@
   <!-- Tipografías de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
   <!-- =====================================================
        Bootstrap 5 CSS — andamiaje estructural
@@ -28,7 +31,9 @@
        propios. Las clases propias usan el prefijo fa-
        ===================================================== -->
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body id="top">
 
 
@@ -43,18 +48,21 @@
   <nav class="navbar navbar-expand-lg fixed-top fa-navbar">
     <div class="container">
 
-      <a class="navbar-brand fa-brand" href="#inicio">
+      <!--<a class="navbar-brand fa-brand" href="#inicio">
         <span>✦</span> FARMEAR <b>AURA</b>
+      </a>-->
+      
+      <!--Aca separamos las palabras e icono por clase para poder darle un estilo diferente a cada uno-->
+      <a class="navbar-brand fa-brand" href="#inicio">
+      <span class="fa-icon">✦</span>
+      <span class="fa-farmear">FARMEAR</span>
+      <b class="fa-aura">AURA</b>
       </a>
 
       <!-- Bootstrap maneja el toggle de este botón automáticamente
            mediante data-bs-toggle y data-bs-target -->
-      <button class="navbar-toggler fa-toggler" type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navLinks"
-              aria-controls="navLinks"
-              aria-expanded="false"
-              aria-label="Abrir menú">
+      <button class="navbar-toggler fa-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks"
+        aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menú">
         <span></span><span></span><span></span>
       </button>
 
@@ -62,12 +70,14 @@
         <!-- ms-auto empuja los links hacia la derecha -->
         <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
           <!-- data-section es leído por el IntersectionObserver en main.js -->
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio"   data-section="inicio">HOME</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas"    data-section="salas">SALAS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios"  data-section="precios">PRECIOS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-cta"  href="#reservas">RESERVAR</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio" data-section="inicio">INICIO</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas" data-section="salas">SALAS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios" data-section="precios">PRECIOS</a></li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-cta" href="#reservas">RESERVAR</a></li>
         </ul>
       </div>
 
@@ -94,7 +104,8 @@
           <div class="col-lg-8">
             <span class="fa-eyebrow">✦ ESCAPE ROOM · BUENOS AIRES</span>
             <h1>Entrá al misterio.<br><span>Escapá si podés.</span></h1>
-            <p>Una experiencia inmersiva donde cada pista importa, cada segundo cuenta y el equipo tiene que pensar como uno.</p>
+            <p>Una experiencia inmersiva donde cada pista importa, cada segundo cuenta y el equipo tiene que pensar como
+              uno.</p>
             <div class="fa-actions">
               <a class="btn fa-btn fa-btn-gold" href="#reservas">🔑 Reservar aventura</a>
               <a class="btn fa-btn fa-btn-outline" href="#salas">Descubrir las salas ↓</a>
@@ -140,7 +151,8 @@
             <h2>Nuestras<br><span>salas.</span></h2>
           </div>
           <div class="col-lg-6">
-            <p>Cuatro historias. Cuatro desafíos. Una sola pregunta: ¿van a lograr salir antes de que se termine el tiempo?</p>
+            <p>Cuatro historias. Cuatro desafíos. Una sola pregunta: ¿van a lograr salir antes de que se termine el
+              tiempo?</p>
           </div>
         </div>
 
@@ -214,7 +226,8 @@
           <div class="col-lg-6">
             <span class="fa-eyebrow">LA EXPERIENCIA</span>
             <h2>Misterio.<br>Adrenalina.<br><span>Equipo.</span></h2>
-            <p>Farmear Aura es mucho más que resolver acertijos. Es entrar en una historia, asumir un desafío y descubrir cómo funciona tu equipo cuando el reloj empieza a correr.</p>
+            <p>Farmear Aura es mucho más que resolver acertijos. Es entrar en una historia, asumir un desafío y
+              descubrir cómo funciona tu equipo cuando el reloj empieza a correr.</p>
             <div class="fa-points">
               <span>💡<b>Acertijos</b><small>Para pensar juntos</small></span>
               <span>⏱<b>60 minutos</b><small>Contra el reloj</small></span>
@@ -244,7 +257,7 @@
         <div class="text-center mb-5">
           <span class="fa-eyebrow fa-eyebrow-dark">TARIFAS</span>
           <h2>Elegí cómo<br><span>vivir la aventura.</span></h2>
-          <p>Valores ficticios para el proyecto educativo.</p>
+          
         </div>
 
         <!-- align-items-center: centra verticalmente las 3 cards
@@ -255,7 +268,7 @@
             <article class="fa-price-card">
               <small>EXPERIENCIA CLÁSICA</small>
               <h3>Sesión individual</h3>
-              <strong>$25.000 <i>/persona</i></strong>
+              <strong>$30.000<i>/persona</i></strong>
               <ul>
                 <li>✓ Una sala a elección</li>
                 <li>✓ Game Master</li>
@@ -299,7 +312,7 @@
         </div>
 
         <p class="text-center fa-note mt-4">
-          * Precios ficticios. Sujetos a actualización. Menores de 13 años deben ir acompañados por un adulto.
+          Precios ficticios. Sujetos a actualización. Menores de 13 años deben ir acompañados por un adulto.
         </p>
 
       </div>
@@ -308,46 +321,33 @@
 
     <!-- FORMULARIO DE RESERVA V1 -->
     <section class="fa-booking" id="reservas">
-      
-      <form class="form-reservas" novalidate>
-              <div class="row g-3 mb-3">
-              <div class="col-12">
-              <label class="form-label fa-label" for="sala">Sala</label>
-                <select id="sala" name="sala" class="form-select fa-input fa-select" required>
-                <option value="">Elegí una sala</option>
-                <option value="boveda">La Cripta</option>
-                <option value="laboratorio">Estación Abandonada</option>
-                <option value="faro">El Último Grimorio</option>
-                <option value="biblioteca">El Castillo</option>
-                </select>
-              </div>
-              </div>
+      <div class="container">
+        <div class="row align-items-center g-5">
 
-              <div class="row g-3 mb-3">
-                <div class="col-md-6">
-                  <label class="form-label fa-label">Nombre</label>
-                  <input class="form-control fa-input" name="name" required minlength="3" placeholder="Nombre">                        
-                </div>
-                
-                <div class="col-md-6">
-                  <label class="form-label fa-label">Apellido</label>
-                  <input class="form-control fa-input" name="apellido" type="text" required placeholder="Apellido">                         
-                </div>
-                
-                
-                  <label class="form-label fa-label">Teléfono</label>
-                  <input class="form-control fa-input-reservas" name="phone" type="tel" required placeholder="Teléfono">                         
-          
-               
-                  <label class="form-label fa-label">Email</label>
-                  <input class="form-control fa-input-reservas" name="email" type="email" required placeholder="Email">                         
-               
+          <div class="col-lg-7">
+            <span class="fa-eyebrow">RESERVAS ONLINE</span>
+            <h2>La cuenta regresiva<br><span>empieza acá.</span></h2>
+            <p>En esta primera etapa el sistema es estático. Más adelante este módulo se conectará con FastAPI y una base de datos.</p>
+            <div class="fa-steps">
+              <span><b>01</b> Elegí una sala</span>
+              <span><b>02</b> Fecha y turno</span>
+              <span><b>03</b> Confirmá tu equipo</span>
+            </div>
+          </div>
 
-              </div>
-              <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
-              
-      </form>
+          <div class="col-lg-5">
+            <div class="fa-booking-box">
+              <div class="fa-lock">🔑</div>
+              <h3>Reservá tu aventura</h3>
+              <p>El formulario completo de reservas se implementará en la etapa de backend.</p>
+              <!-- w-100: utilidad Bootstrap para ancho completo -->
+              <button id="demoBtn" class="btn fa-btn fa-btn-gold w-100">Probar reserva</button>
+              <output id="demoMsg"></output>
+            </div>
+          </div>
 
+        </div>
+      </div>
     </section>
 
 
@@ -369,15 +369,12 @@
             <h2>¿Te animás<br><span>a jugar?</span></h2>
             <p>Consultanos por salas, cumpleaños, eventos corporativos o cualquier aventura.</p>
             <ul class="fa-contact-list">
-              <li>✉ hola@farmearaura.com.ar</li>
-              <li>☎ 011-0000-0000</li>
+              <li>✉ info@farmearaura.com.ar</li>
+              <li>☎ 011-8447-5594</li>
               <li>◎ @farmearaura</li>
               <li>⌖ Buenos Aires, Argentina</li>
               <li>◷ Martes a domingo · 14:00 a 23:00</li>
             </ul>
-            <div class="fa-wa">
-              ◉ <span><b>WhatsApp</b><small>Se habilitará en una próxima etapa</small></span>
-            </div>
           </div>
 
           <!-- Formulario -->
@@ -391,21 +388,19 @@
                   <label class="form-label fa-label">Nombre</label>
                   <!-- form-control: Bootstrap (padding, borde, outline);
                        fa-input: colores y borde propios de Farmear -->
-                  <input class="form-control fa-input" name="name"
-                         required minlength="3" placeholder="Nombre completo">
+                  <input class="form-control fa-input" name="name" required minlength="3" placeholder="Nombre completo">
                 </div>
                 <div class="col-md-6">
                   <label class="form-label fa-label">Email</label>
-                  <input class="form-control fa-input" name="email"
-                         type="email" required placeholder="tu@email.com">
+                  <input class="form-control fa-input" name="email" type="email" required placeholder="tu@email.com">
+
                 </div>
               </div>
 
               <div class="mb-3">
                 <label class="form-label fa-label">Consulta</label>
-                <textarea class="form-control fa-input" name="message"
-                          required minlength="10" rows="6"
-                          placeholder="Contanos qué sala te interesa..."></textarea>
+                <textarea class="form-control fa-input" name="message" required minlength="10" rows="6"
+                  placeholder="Contanos qué sala te interesa..."></textarea>
               </div>
 
               <button type="submit" class="btn fa-btn fa-btn-gold">
@@ -418,9 +413,19 @@
 
         </div>
       </div>
+
+      <a class="whatsapp" id="btnWhatsapp"
+          href="https://wa.me/549XXXXXXXXXX?text=Hola!"
+          target="_blank" rel="noopener"
+          aria-label="Escribinos por WhatsApp">
+          <i class="fa-brands fa-whatsapp"></i>
+      </a>
     </section>
+          
+   
 
   </main>
+
 
 
   <!-- =====================================================
@@ -445,10 +450,6 @@
     </div>
   </footer>
 
-  <!-- Botón volver arriba (custom, no es Bootstrap) -->
-  <button id="topBtn" class="fa-top-btn" aria-label="Volver arriba">↑</button>
-
-
   <!-- =====================================================
        Bootstrap 5 JS Bundle
        Incluye Popper.js. Necesario para el navbar collapse
@@ -458,6 +459,6 @@
 
   <!-- JS personalizado Farmear Aura -->
   <script src="assets/js/main.js"></script>
-
 </body>
+
 </html>

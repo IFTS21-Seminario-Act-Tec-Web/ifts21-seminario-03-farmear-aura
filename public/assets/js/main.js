@@ -118,18 +118,6 @@ const sectionObserver = new IntersectionObserver((entries) => {
 sections.forEach(section => sectionObserver.observe(section));
 
 
-// ─── 4. DEMO DE RESERVA ──────────────────────────────────────
-// Simula el éxito de una reserva.
-// En la etapa de backend esto enviará una petición real
-// a POST /api/reservas en FastAPI.
-
-const demoBtn = document.getElementById('demoBtn');
-const demoMsg = document.getElementById('demoMsg');
-
-demoBtn.addEventListener('click', () => {
-  demoMsg.textContent = '✓ Demo OK. En la siguiente etapa este módulo consultará disponibilidad en FastAPI.';
-});
-
 
 // ─── 5. FORMULARIO DE CONTACTO ───────────────────────────────
 // Validación con la API nativa del navegador (HTML5).
@@ -162,5 +150,3 @@ contactForm.addEventListener('submit', (event) => {
   // Limpiamos el formulario después de un envío exitoso.
   contactForm.reset();
 });
-
-
