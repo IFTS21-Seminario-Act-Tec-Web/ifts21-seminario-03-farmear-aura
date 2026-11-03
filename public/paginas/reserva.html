@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reservar sala — Farmear Aura</title>
+  <base target="_top">
+
+  <!-- Tipografías (las mismas que index.html) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap, igual que en index.html -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tus estilos, el del login y los extras de la reserva (en este orden) -->
+  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="stylesheet" href="../assets/css/registro.css">
+  <link rel="stylesheet" href="../assets/css/reserva.css">  
+  </head>
+
+<body class="fa-login-page">
+
+  <main class="fa-login fa-reserva">
+
+    <a class="fa-login-brand" href="index.html">FARMEAR <span>AURA</span></a>
+
+    <p class="fa-login-eyebrow">Tu próxima aventura</p>
+    <h1>Reservar <span>sala</span></h1>
+    <p class="fa-login-subtitle">Elegí la sala, el día y el horario. Te confirmamos por email.</p>
+
+    <form id="reservaForm" novalidate>
+
+      <!-- ───────── 1. SALA ───────── -->
+      <p class="fa-reserva-step"><b>1</b> Elegí tu sala</p>
+
+      <div class="fa-room-options" role="radiogroup" aria-label="Sala">
+
+        <label class="fa-room-option">
+          <input type="radio" name="sala" value="cripta"
+                 data-name="La Cripta del Alquimista" data-min="2" data-max="6" data-dur="60">
+          <span class="fa-room-card">
+            <span class="fa-room-level">Dificultad alta</span>
+            <strong class="fa-room-name">La Cripta del Alquimista</strong>
+            <span class="fa-room-meta">2–6 personas · 60'</span>
+          </span>
+        </label>
+
+        <label class="fa-room-option">
+          <input type="radio" name="sala" value="estacion"
+                 data-name="Estación Abandonada" data-min="2" data-max="8" data-dur="75">
+          <span class="fa-room-card">
+            <span class="fa-room-level">Dificultad media</span>
+            <strong class="fa-room-name">Estación Abandonada</strong>
+            <span class="fa-room-meta">2–8 personas · 75'</span>
+          </span>
+        </label>
+
+        <label class="fa-room-option">
+          <input type="radio" name="sala" value="grimorio"
+                 data-name="El Último Grimorio" data-min="3" data-max="6" data-dur="90">
+          <span class="fa-room-card">
+            <span class="fa-room-level">Dificultad extrema</span>
+            <strong class="fa-room-name">El Último Grimorio</strong>
+            <span class="fa-room-meta">3–6 personas · 90'</span>
+          </span>
+        </label>
+
+        <label class="fa-room-option">
+          <input type="radio" name="sala" value="castillo"
+                 data-name="El Castillo" data-min="2" data-max="6" data-dur="45">
+          <span class="fa-room-card">
+            <span class="fa-room-level">Dificultad baja</span>
+            <strong class="fa-room-name">El Castillo</strong>
+            <span class="fa-room-meta">2–6 personas · 45'</span>
+          </span>
+        </label>
+
+      </div>
+
+      <!-- ───────── 2. FECHA, HORARIO Y PERSONAS ───────── -->
+      <p class="fa-reserva-step"><b>2</b> Fecha, horario y personas</p>
+
+      <div class="fa-reserva-cols">
+        <div class="fa-login-field">
+          <label class="fa-login-label" for="fecha">Fecha</label>
+          <input class="fa-login-input" type="date" id="fecha" name="fecha" required>
+        </div>
+
+        <div class="fa-login-field">
+          <label class="fa-login-label" for="personas">Personas</label>
+          <div class="fa-stepper">
+            <button class="fa-stepper-btn" type="button" id="menos" aria-label="Menos personas">−</button>
+            <input class="fa-login-input" type="number" id="personas" name="personas" value="2" min="2" max="6" required>
+            <button class="fa-stepper-btn" type="button" id="mas" aria-label="Más personas">+</button>
+          </div>
+          <span class="fa-reserva-hint" id="personasHint">Elegí una sala para ver el cupo.</span>
+        </div>
+      </div>
+
+      <div class="fa-login-field">
+        <span class="fa-login-label">Horario</span>
+        <!-- Ejemplo fijo: la disponibilidad real tiene que venir de tu backend -->
+        <div class="fa-slots" role="radiogroup" aria-label="Horario">
+          <label class="fa-slot"><input type="radio" name="hora" value="16:00"><span>16:00</span></label>
+          <label class="fa-slot"><input type="radio" name="hora" value="17:30"><span>17:30</span></label>
+          <label class="fa-slot"><input type="radio" name="hora" value="19:00"><span>19:00</span></label>
+          <label class="fa-slot fa-slot-off"><input type="radio" name="hora" value="20:30" disabled><span>20:30</span></label>
+          <label class="fa-slot"><input type="radio" name="hora" value="22:00"><span>22:00</span></label>
+        </div>
+      </div>
+
+      <!-- ───────── 3. DATOS DE CONTACTO ───────── -->
+      <p class="fa-reserva-step"><b>3</b> Tus datos</p>
+
+      <div class="fa-reserva-cols">
+        <div class="fa-login-field">
+          <label class="fa-login-label" for="nombre">Nombre y apellido</label>
+          <input class="fa-login-input" type="text" id="nombre" name="nombre"
+                 placeholder="Nacho Pérez" autocomplete="name" required>
+        </div>
+
+        <div class="fa-login-field">
+          <label class="fa-login-label" for="telefono">Teléfono</label>
+          <input class="fa-login-input" type="tel" id="telefono" name="telefono"
+                 placeholder="11 2233 4455" autocomplete="tel" required>
+        </div>
+      </div>
+
+      <div class="fa-login-field">
+        <label class="fa-login-label" for="email">Email</label>
+        <input class="fa-login-input" type="email" id="email" name="email"
+               placeholder="tu@email.com" autocomplete="email" required>
+      </div>
+
+      <div class="fa-login-field">
+        <label class="fa-login-label" for="comentarios">Comentarios (opcional)</label>
+        <textarea class="fa-login-input fa-reserva-textarea" id="comentarios" name="comentarios"
+                  placeholder="Cumpleaños, alguna consulta, etc."></textarea>
+      </div>
+
+      <!-- ───────── RESUMEN ───────── -->
+      <section class="fa-reserva-summary" aria-live="polite">
+        <h2>Resumen de tu reserva</h2>
+        <dl>
+          <dt>Sala</dt>      <dd id="resSala">—</dd>
+          <dt>Duración</dt>  <dd id="resDur">—</dd>
+          <dt>Fecha</dt>     <dd id="resFecha">—</dd>
+          <dt>Horario</dt>   <dd id="resHora">—</dd>
+          <dt>Personas</dt>  <dd id="resPersonas">—</dd>
+        </dl>
+      </section>
+
+      <span class="fa-login-error" id="reservaError" role="alert"></span>
+      <span class="fa-reserva-ok" id="reservaOk" role="status"></span>
+
+      <button class="fa-login-btn" type="submit">Confirmar reserva</button>
+
+    </form>
+
+    <p class="fa-login-foot">¿Dudas? <a href="index.html#contacto">Escribinos</a></p>
+
+  </main>
+
+  <script>
+    const form      = document.getElementById("reservaForm");
+    const fecha     = document.getElementById("fecha");
+    const personas  = document.getElementById("personas");
+    const hint      = document.getElementById("personasHint");
+    const btnMenos  = document.getElementById("menos");
+    const btnMas    = document.getElementById("mas");
+    const errorBox  = document.getElementById("reservaError");
+    const okBox     = document.getElementById("reservaOk");
+
+    // ---- Fecha mínima: hoy (en hora local) ----
+    const hoy = new Date();
+    hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+    fecha.min = hoy.toISOString().split("T")[0];
+
+    // ---- Datos de la sala elegida ----
+    const salaElegida = () => document.querySelector('input[name="sala"]:checked');
+    const horaElegida = () => document.querySelector('input[name="hora"]:checked');
+
+    // ---- Resumen ----
+    function actualizarResumen() {
+      const s = salaElegida();
+      const h = horaElegida();
+
+      document.getElementById("resSala").textContent     = s ? s.dataset.name : "—";
+      document.getElementById("resDur").textContent      = s ? s.dataset.dur + " min" : "—";
+      document.getElementById("resHora").textContent     = h ? h.value + " hs" : "—";
+      document.getElementById("resPersonas").textContent = s ? personas.value : "—";
+
+      if (fecha.value) {
+        const [y, m, d] = fecha.value.split("-");
+        document.getElementById("resFecha").textContent = `${d}/${m}/${y}`;
+      } else {
+        document.getElementById("resFecha").textContent = "—";
+      }
+    }
+
+    // ---- Al cambiar de sala: ajustar cupo de personas ----
+    function ajustarCupo() {
+      const s = salaElegida();
+      if (!s) return;
+
+      const min = +s.dataset.min;
+      const max = +s.dataset.max;
+      personas.min = min;
+      personas.max = max;
+      personas.value = Math.min(Math.max(+personas.value || min, min), max);
+      hint.textContent = `Esta sala admite de ${min} a ${max} personas.`;
+      actualizarBotones();
+    }
+
+    function actualizarBotones() {
+      btnMenos.disabled = +personas.value <= +personas.min;
+      btnMas.disabled   = +personas.value >= +personas.max;
+    }
+
+    btnMenos.addEventListener("click", () => { personas.stepDown(); actualizarBotones(); actualizarResumen(); });
+    btnMas.addEventListener("click",   () => { personas.stepUp();   actualizarBotones(); actualizarResumen(); });
+    personas.addEventListener("input", () => { actualizarBotones(); actualizarResumen(); });
+
+    document.querySelectorAll('input[name="sala"]').forEach(r => r.addEventListener("change", () => {
+      ajustarCupo();
+      actualizarResumen();
+    }));
+    document.querySelectorAll('input[name="hora"]').forEach(r => r.addEventListener("change", actualizarResumen));
+    fecha.addEventListener("change", actualizarResumen);
+
+    actualizarBotones();
+
+    // ---- Validación (de ejemplo: reemplazala por tu lógica real) ----
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      errorBox.textContent = "";
+      okBox.textContent = "";
+
+      const s = salaElegida();
+      const email = document.getElementById("email");
+      const nombre = document.getElementById("nombre");
+      const tel = document.getElementById("telefono");
+
+      if (!s)                 return (errorBox.textContent = "Elegí una sala.");
+      if (!fecha.value)       return (errorBox.textContent = "Elegí una fecha.");
+      if (!horaElegida())     return (errorBox.textContent = "Elegí un horario.");
+      if (+personas.value < +personas.min || +personas.value > +personas.max)
+                              return (errorBox.textContent = `Esta sala admite de ${personas.min} a ${personas.max} personas.`);
+      if (!nombre.value.trim()) return (errorBox.textContent = "Ingresá tu nombre.");
+      if (!tel.value.trim())    return (errorBox.textContent = "Ingresá un teléfono de contacto.");
+      if (!email.value || !email.checkValidity())
+                              return (errorBox.textContent = "Ingresá un email válido.");
+
+      // Acá iría el envío al servidor
+      okBox.textContent = "¡Listo! Recibimos tu solicitud de reserva.";
+    });
+  </script>
+
+</body>
+</html>

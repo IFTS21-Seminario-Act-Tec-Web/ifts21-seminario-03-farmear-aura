@@ -623,6 +623,44 @@ a {
 
 .fa-note { color: #817b80; font-size: 9px; }
 
+/* Botonera */
+.fa-price-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.fa-price-tab {
+  transition: background .2s, color .2s;
+}
+
+/* Botón de la tarifa que se está mostrando */
+.fa-price-tab.is-active,
+.fa-price-tab.is-active:hover {
+  background: var(--gold);
+  color: #11101a;
+}
+
+/* Tarjetas: ocultas hasta que se elige su botón */
+.fa-price-panel {
+  display: none;
+}
+
+.fa-price-panel.is-open {
+  display: block;
+  animation: faPriceIn .35s ease;
+}
+
+@keyframes faPriceIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-price-panel.is-open { animation: none; }
+}
 
 /* ============================================================
    9. RESERVAS
@@ -754,6 +792,33 @@ a {
   width: 350px;
 }
 
+
+/* Formulario de reservas*/
+
+.form-reservas{
+  width: 100%;
+  max-width: 400px;         
+  margin: 0 auto;
+  padding: 28px 28px 24px;  
+
+  border: 1px solid #d8d1c8;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(33,29,35,.05);
+}
+
+.fa-input-reservas {
+  background: #fcfbf8 !important;
+  border-color: #ded9d2 !important;
+  font-size: 11px !important;
+  border-radius: 9px !important;
+  color: #1c1a20 !important;
+  width: 350px;
+}
+
+
+
+
 .fa-label {
   font-size: 9px !important;
   font-weight: 800 !important;
@@ -860,6 +925,55 @@ a {
   transform: translateY(-4px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
   background: #20ba5a;
+}
+
+/* Popup dinámico */
+#popup-dinamico {
+  width: min(740px, 94vw);
+  height: min(92vh, 960px);
+  padding: 0;
+  border: 1px solid rgba(201, 162, 39, .3);
+  border-radius: 16px;
+  background: #0d0d1a;
+  overflow: hidden;
+}
+
+/* Fondo oscuro detrás del popup */
+#popup-dinamico::backdrop {
+  background: rgba(5, 5, 12, .7);
+  backdrop-filter: blur(4px);
+}
+
+#popup-dinamico iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.popup-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(17, 16, 26, .9);
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color .2s, border-color .2s;
+}
+
+.popup-cerrar:hover {
+  color: var(--gold);
+  border-color: var(--gold);
 }
 
 

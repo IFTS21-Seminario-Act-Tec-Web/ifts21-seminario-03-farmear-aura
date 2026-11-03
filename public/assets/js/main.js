@@ -19,6 +19,33 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
+
+const tabs   = document.querySelectorAll(".fa-price-tab");
+const panels = document.querySelectorAll(".fa-price-panel");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    const panel = document.getElementById(tab.dataset.target);
+    const yaAbierto = panel.classList.contains("is-open");
+
+    // Oculta todas las tarjetas y apaga todos los botones
+    panels.forEach(p => p.classList.remove("is-open"));
+    tabs.forEach(t => {
+      t.classList.remove("is-active");
+      t.setAttribute("aria-expanded", "false");
+    });
+
+    // Muestra la elegida (si ya estaba abierta, queda cerrada)
+    if (!yaAbierto) {
+      panel.classList.add("is-open");
+      tab.classList.add("is-active");
+      tab.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+
+
 // ─── 2. BOTÓN "VOLVER ARRIBA" ────────────────────────────────
 // Aparece luego de scrollear 400px hacia abajo.
 // Al hacer clic, sube suavemente al inicio de la página.
@@ -151,29 +178,4 @@ contactForm.addEventListener('submit', (event) => {
   contactForm.reset();
 });
 
-
-  // FORMULARIO DE RESERCAVA
-
-  const formReserva = document.getElementById('formReserva');
-  const sala = document.getElementById('sala');
-  const opciones = sala.options;
-  const nombre = document.getElementById('Nombre');
-  const apellido = document.getElementById('Apellido');
-  const telefono = document.getElementById('Teléfono');
-  const email = document.getElementById('Email');
-
-  formReserva.addEventListener('submit', e => {
-
-    e.preventDefault();
-
-    if (!formReserva.checkValidity()) {
-      formReserva.reportValidity();
-      return;
-    }
-    formReserva.reportValidity();
-    
-
-    formReserva.reset();
-
-  });
 

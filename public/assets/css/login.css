@@ -1,0 +1,408 @@
+/* ============================================================
+   FARMEAR AURA — login.css
+   Estilos del formulario de login
+
+   Uso: cargalo DESPUÉS de Bootstrap y de styles.css
+     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel="stylesheet" href="assets/css/login.css">
+
+   Reutiliza las variables de styles.css (--gold, --gold2, --dark).
+   Cada var() lleva un valor de respaldo, así que el archivo
+   también funciona si no cargás styles.css.
+
+   Convención: clases propias con prefijo fa-login-
+   ============================================================ */
+
+
+/* ============================================================
+   1. PÁGINA
+   Fondo oscuro con un resplandor dorado muy sutil.
+   Agregá la clase fa-login-page al <body>.
+   ============================================================ */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, .5) transparent;   /* dorado tenue */
+}
+
+
+.fa-login-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: Raleway, Arial, sans-serif;
+  color: #eee8f2;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(201, 162, 39, .14), transparent 60%),
+    radial-gradient(ellipse at 100% 100%, rgba(80, 60, 140, .16), transparent 55%),
+    #0d0d1a;
+}
+
+
+/* ============================================================
+   2. TARJETA
+   Mismo "glassmorphism" que la navbar: fondo semitransparente,
+   desenfoque y borde dorado tenue.
+   ============================================================ */
+
+.fa-login {
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px 32px;
+  border: 1px solid rgba(201, 162, 39, .22);
+  border-radius: 20px;
+  background: rgba(17, 16, 26, .82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, .45);
+}
+
+
+/* ============================================================
+   3. ENCABEZADO
+   ============================================================ */
+
+.fa-login-brand {
+  display: block;
+  margin-bottom: 26px;
+  text-align: center;
+  font-family: Cinzel, serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-decoration: none;
+}
+
+.fa-login-brand span,
+.fa-login-brand b {
+  color: var(--gold, #c9a227);
+}
+
+.fa-login-eyebrow {
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a227);
+}
+
+.fa-login h1 {
+  margin: 0 0 8px;
+  text-align: center;
+  font: 900 30px/1 Cinzel, serif;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.fa-login h1 span {
+  color: var(--gold, #c9a227);
+}
+
+.fa-login-subtitle {
+  margin: 0 0 28px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #9a94a3;
+}
+
+
+/* ============================================================
+   4. CAMPOS
+   ============================================================ */
+
+.fa-login-field {
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.fa-login-label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #bbb5c2;
+}
+
+.fa-login-input {
+  display: block;
+  width: 100%;
+  min-height: 47px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 9px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.fa-login-input::placeholder {
+  color: #6f6a78;
+}
+
+.fa-login-input:hover {
+  border-color: rgba(255, 255, 255, .26);
+}
+
+.fa-login-input:focus {
+  color: #fff;
+  background: rgba(255, 255, 255, .07);
+  border-color: var(--gold, #c9a227);
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, .13);
+}
+
+/* Campo con error (agregá la clase is-invalid desde JS) */
+.fa-login-input.is-invalid {
+  border-color: #e5645a;
+  background-image: none;
+}
+
+.fa-login-input.is-invalid:focus {
+  box-shadow: 0 0 0 4px rgba(229, 100, 90, .15);
+}
+
+/* Autocompletado del navegador: evita el fondo blanco/azul */
+.fa-login-input:-webkit-autofill,
+.fa-login-input:-webkit-autofill:hover,
+.fa-login-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  -webkit-box-shadow: 0 0 0 100px #1a1926 inset;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* Campo de contraseña: deja lugar para el botón del ojito */
+.fa-login-input-pass {
+  padding-right: 46px;
+}
+
+.fa-login-toggle {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 39px;
+  height: 39px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 15px;
+  color: #8b8594;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: color .2s;
+}
+
+.fa-login-toggle:hover,
+.fa-login-toggle:focus-visible {
+  color: var(--gold2, #e2bb3d);
+}
+
+.fa-login-toggle:focus-visible {
+  outline: 2px solid rgba(201, 162, 39, .5);
+}
+
+
+/* ============================================================
+   5. RECORDARME / OLVIDÉ MI CONTRASEÑA
+   ============================================================ */
+
+.fa-login-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 4px 0 22px;
+}
+
+.fa-login-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  color: #bbb5c2;
+  cursor: pointer;
+}
+
+.fa-login-check input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--gold, #c9a227);
+  cursor: pointer;
+}
+
+.fa-login-link {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold, #c9a227);
+  transition: color .2s;
+}
+
+.fa-login-link:hover {
+  color: var(--gold2, #e2bb3d);
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   6. BOTONES
+   Mismo estilo que .fa-btn-gold y .fa-btn-outline,
+   pero al 100% de ancho y centrados con flex.
+   ============================================================ */
+
+.fa-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 47px;
+  padding: 0 18px;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #11101a;
+  background: var(--gold, #c9a227);
+  border: 0;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+}
+
+.fa-login-btn:hover {
+  background: var(--gold2, #e2bb3d);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(201, 162, 39, .25);
+}
+
+.fa-login-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.fa-login-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.fa-login-btn:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Variante secundaria (ej: "Continuar con Google") */
+.fa-login-btn-outline {
+  color: #fff;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.fa-login-btn-outline:hover {
+  background: rgba(255, 255, 255, .1);
+  box-shadow: none;
+}
+
+
+/* ============================================================
+   7. SEPARADOR, MENSAJES Y PIE
+   ============================================================ */
+
+.fa-login-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6f6a78;
+}
+
+.fa-login-divider::before,
+.fa-login-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, .12);
+}
+
+/* Mensaje de error general (ej: "Credenciales incorrectas") */
+.fa-login-error {
+  display: block;
+  min-height: 18px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #e5645a;
+}
+
+.fa-login-foot {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 11px;
+  color: #8b8594;
+}
+
+.fa-login-foot a {
+  font-weight: 700;
+  color: var(--gold, #c9a227);
+  transition: color .2s;
+}
+
+.fa-login-foot a:hover {
+  color: var(--gold2, #e2bb3d);
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   8. RESPONSIVE Y ACCESIBILIDAD
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .fa-login-page {
+    padding: 16px;
+  }
+
+  .fa-login {
+    padding: 32px 20px 24px;
+    border-radius: 16px;
+  }
+
+  .fa-login h1 {
+    font-size: 26px;
+  }
+
+  /* 16px evita el zoom automático de iOS al enfocar un input */
+  .fa-login-input {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-login-input,
+  .fa-login-btn,
+  .fa-login-link,
+  .fa-login-toggle {
+    transition: none;
+  }
+
+  .fa-login-btn:hover {
+    transform: none;
+  }
+}
