@@ -12,10 +12,17 @@ StaticFiles se monta al final para no interceptar futuras rutas /api/*.
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
+
+from src.routes.contact import router as contact_router
+
 app = FastAPI(
     title="Farmear Aura",
     version="0.1.0",
 )
+
+
+app.include_router(contact_router, prefix="/api")
+
 
 # ------------------------------------------------------------
 # PRÓXIMO PASO
