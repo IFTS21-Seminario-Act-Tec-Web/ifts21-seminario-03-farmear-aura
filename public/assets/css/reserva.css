@@ -235,6 +235,7 @@ html {
 
 .fa-stepper .fa-login-input {
   text-align: center;
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 

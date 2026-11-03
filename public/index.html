@@ -73,6 +73,7 @@
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio" data-section="inicio">INICIO</a></li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas" data-section="salas">SALAS</a></li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios" data-section="precios">PRECIOS</a></li>
+<<<<<<< HEAD
           <li class="nav-item"><a class="nav-link fa-nav-link" href="../public/paginas/login.html" data-section="reservas">INICIAR SESIÓN</a>
           </li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a>
@@ -80,6 +81,13 @@
           <li class="nav-item">
             <button id = 'btn-cargar' class="nav-link fa-nav-cta" popovertarget="popup-dinamico"> RESERVAR </button>
           </li>
+=======
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#reservas" data-section="reservas">RESERVAS</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a>
+          </li>
+          <li class="nav-item"><a class="nav-link fa-nav-cta" href="#reservas">RESERVAR</a></li>
+>>>>>>> feature/prueba
         </ul>
       </div>
 
@@ -160,7 +168,6 @@
     <section class="fa-section fa-rooms" id="salas">
 
       <div class="container">
-
         <div class="row align-items-end mb-5">
           <div class="col-lg-6">
             <span class="fa-eyebrow fa-eyebrow-dark">ELEGÍ TU DESAFÍO</span>
@@ -273,6 +280,7 @@
     <section class="fa-section fa-pricing" id="precios">
         <div class="container">
 
+<<<<<<< HEAD
           <div class="fa-price-tabs" role="group" aria-label="Tarifas">
             <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab"
             data-target="precio-clasica" aria-controls="precio-clasica" aria-expanded="false">
@@ -286,6 +294,30 @@
             data-target="precio-team" aria-controls="precio-team" aria-expanded="false">
             Team building
            </button>
+=======
+        <div class="text-center mb-5">
+          <span class="fa-eyebrow fa-eyebrow-dark">TARIFAS</span>
+          <h2>Elegí cómo<br><span>vivir la aventura.</span></h2>
+          
+        </div>
+
+        <!-- align-items-center: centra verticalmente las 3 cards
+             (la del medio está elevada con transform en el CSS) -->
+        <div class="row g-3 justify-content-center align-items-center">
+
+          <div class="col-lg-4 col-md-8">
+            <article class="fa-price-card">
+              <small>EXPERIENCIA CLÁSICA</small>
+              <h3>Sesión individual</h3>
+              <strong>$30.000<i>/persona</i></strong>
+              <ul>
+                <li>✓ Una sala a elección</li>
+                <li>✓ Game Master</li>
+                <li>✓ Hasta 8 personas</li>
+              </ul>
+              <a class="btn fa-btn fa-btn-dark" href="#reservas">Reservar</a>
+            </article>
+>>>>>>> feature/prueba
           </div>
 
            <div class="row g-3 justify-content-center align-items-center">
@@ -345,6 +377,54 @@
     </section>
 
 
+<<<<<<< HEAD
+=======
+    <!-- FORMULARIO DE RESERVA V1 -->
+    <section class="fa-booking" id="reservas">
+
+      <form id="formReserva" class="form-reservas" novalidate>
+        <div class="row g-3 mb-3">
+          <div class="col-12">
+
+            <label class="form-label fa-label" for="sala">Sala</label>
+            <select id="sala" name="sala" class="form-select fa-input fa-select" required>
+              <option value="boveda">La Cripta</option>
+              <option value="laboratorio">Estación Abandonada</option>
+              <option value="faro">El Último Grimorio</option>
+              <option value="biblioteca">El Castillo</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <label class="form-label fa-label">Nombre</label>
+            <input id="Nombre" class="form-control fa-input" name="name" required minlength="2" placeholder="Nombre">
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label fa-label">Apellido</label>
+            <input id="Apellido" class="form-control fa-input" name="apellido" type="text" required minlength="2"
+              placeholder="Apellido">
+          </div>
+
+          <label class="form-label fa-label">Teléfono</label>
+          <input id="Teléfono" class="form-control fa-input-reservas" name="phone" type="tel" required
+            placeholder="Teléfono">
+
+          <label class="form-label fa-label">Email</label>
+          <input id="Email" class="form-control fa-input-reservas" name="email" type="email" required
+            placeholder="Email">
+
+        </div>
+        <div class="text-center"><button type="submit" class="btn fa-btn fa-btn-gold"> Enviar </button></div>
+
+      </form>
+
+    </section>
+
+>>>>>>> feature/prueba
 
     <!-- ===================================================
          CONTACTO

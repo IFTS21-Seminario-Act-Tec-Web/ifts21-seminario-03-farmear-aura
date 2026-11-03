@@ -13,8 +13,12 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
 
+<<<<<<< HEAD
 from public.assets.fast_api.conexion import router as conexion_router   # ← router
 
+=======
+from src.routes.contact import router as contact_router
+>>>>>>> feature/prueba
 
 app = FastAPI(
     title="Farmear Aura",
@@ -22,9 +26,15 @@ app = FastAPI(
 )
 
 
+<<<<<<< HEAD
 
 app.include_router(conexion_router, prefix="/api")
 
+=======
+app.include_router(contact_router, prefix="/api")
+
+
+>>>>>>> feature/prueba
 # ------------------------------------------------------------
 # PRÓXIMO PASO
 # Importar aquí los routers creados por el equipo:
