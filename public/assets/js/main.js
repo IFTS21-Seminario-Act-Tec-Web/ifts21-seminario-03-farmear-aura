@@ -179,3 +179,30 @@ contactForm.addEventListener('submit', (event) => {
 });
 
 
+
+
+  // FORMULARIO DE RESERCAVA
+
+  const formReserva = document.getElementById('formReserva');
+  const sala = document.getElementById('sala');
+  const opciones = sala.options;
+  const nombre = document.getElementById('Nombre');
+  const apellido = document.getElementById('Apellido');
+  const telefono = document.getElementById('Teléfono');
+  const email = document.getElementById('Email');
+
+  formReserva.addEventListener('submit', e => {
+
+    e.preventDefault();
+
+    if (!formReserva.checkValidity()) {
+      formReserva.reportValidity();
+      return;
+    }
+    formReserva.reportValidity();
+    
+
+    formReserva.reset();
+
+  });
+
