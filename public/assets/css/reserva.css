@@ -1,0 +1,365 @@
+/* ============================================================
+   FARMEAR AURA — reserva.css
+   Extras para el formulario de reserva: elegir sala, fecha,
+   horario y cantidad de personas.
+
+   Se apoya en login.css (página, tarjeta, campos y botones),
+   así que cargalo DESPUÉS de ese archivo:
+     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel="stylesheet" href="assets/css/login.css">
+     <link rel="stylesheet" href="assets/css/reserva.css">
+
+   Prefijos: fa-reserva-, fa-room-, fa-slot-, fa-stepper-
+   ============================================================ */
+
+
+/* ============================================================
+   1. TARJETA Y PASOS
+   ============================================================ */
+
+/* Agregala junto a fa-login:  <main class="fa-login fa-reserva"> */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 162, 39, .5) transparent;   /* dorado tenue */
+}
+
+.fa-reserva {
+  max-width: 680px;
+}
+
+/* Título de cada paso: "1 · Elegí tu sala" */
+.fa-reserva-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 14px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a227);
+}
+
+.fa-reserva-step:first-child {
+  margin-top: 4px;
+}
+
+.fa-reserva-step b {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  color: #11101a;
+  background: var(--gold, #c9a227);
+  border-radius: 50%;
+}
+
+.fa-reserva-step::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(201, 162, 39, .2);
+}
+
+/* Dos campos lado a lado */
+.fa-reserva-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+
+/* ============================================================
+   2. ELEGIR SALA (tarjetas con radio oculto)
+   ============================================================ */
+
+.fa-room-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fa-room-option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+/* El radio real queda oculto pero sigue siendo accesible con teclado */
+.fa-room-option input,
+.fa-slot input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fa-room-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
+  padding: 16px 16px 14px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 12px;
+  transition: border-color .2s, background .2s, box-shadow .2s, transform .2s;
+}
+
+.fa-room-option:hover .fa-room-card {
+  border-color: rgba(201, 162, 39, .5);
+  transform: translateY(-2px);
+}
+
+.fa-room-level {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a227);
+}
+
+.fa-room-name {
+  font: 700 15px/1.2 Cinzel, serif;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.fa-room-meta {
+  font-size: 10px;
+  color: #9a94a3;
+}
+
+/* Sala elegida */
+.fa-room-option input:checked + .fa-room-card {
+  background: rgba(201, 162, 39, .1);
+  border-color: var(--gold, #c9a227);
+  box-shadow: 0 0 0 4px rgba(201, 162, 39, .13);
+}
+
+.fa-room-option input:checked + .fa-room-card::after {
+  content: "✓";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #11101a;
+  background: var(--gold, #c9a227);
+  border-radius: 50%;
+}
+
+.fa-room-option input:focus-visible + .fa-room-card {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   3. HORARIOS (chips)
+   ============================================================ */
+
+.fa-slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fa-slot {
+  position: relative;
+  cursor: pointer;
+}
+
+.fa-slot span {
+  display: block;
+  padding: 11px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #bbb5c2;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 9px;
+  transition: color .2s, background .2s, border-color .2s;
+}
+
+.fa-slot:hover span {
+  color: #fff;
+  border-color: rgba(201, 162, 39, .5);
+}
+
+.fa-slot input:checked + span {
+  color: #11101a;
+  background: var(--gold, #c9a227);
+  border-color: var(--gold, #c9a227);
+}
+
+.fa-slot input:focus-visible + span {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Horario no disponible (agregá la clase fa-slot-off y disabled al input) */
+.fa-slot-off {
+  cursor: not-allowed;
+}
+
+.fa-slot-off span {
+  opacity: .35;
+  text-decoration: line-through;
+}
+
+
+/* ============================================================
+   4. FECHA Y CANTIDAD DE PERSONAS
+   ============================================================ */
+
+/* Calendario del navegador en modo oscuro */
+.fa-reserva input[type="date"] {
+  color-scheme: dark;
+}
+
+/* Selector con botones − y + */
+.fa-stepper {
+  display: flex;
+  gap: 8px;
+}
+
+.fa-stepper .fa-login-input {
+  text-align: center;
+  -moz-appearance: textfield;
+}
+
+.fa-stepper .fa-login-input::-webkit-outer-spin-button,
+.fa-stepper .fa-login-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fa-stepper-btn {
+  flex: 0 0 47px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background .2s;
+}
+
+.fa-stepper-btn:hover {
+  color: var(--gold2, #e2bb3d);
+  border-color: rgba(201, 162, 39, .5);
+}
+
+.fa-stepper-btn:focus-visible {
+  outline: 2px solid rgba(201, 162, 39, .6);
+}
+
+.fa-stepper-btn:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+/* Texto de ayuda bajo un campo */
+.fa-reserva-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #77717e;
+}
+
+/* Comentarios opcionales */
+.fa-reserva-textarea {
+  min-height: 90px;
+  padding: 12px 14px;
+  resize: vertical;
+}
+
+
+/* ============================================================
+   5. RESUMEN Y MENSAJES
+   ============================================================ */
+
+.fa-reserva-summary {
+  margin: 26px 0 20px;
+  padding: 16px 18px;
+  background: rgba(201, 162, 39, .06);
+  border: 1px dashed rgba(201, 162, 39, .35);
+  border-radius: 12px;
+}
+
+.fa-reserva-summary h2 {
+  margin: 0 0 12px;
+  font: 700 11px Raleway, sans-serif;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold, #c9a227);
+}
+
+.fa-reserva-summary dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  margin: 0;
+  font-size: 11px;
+}
+
+.fa-reserva-summary dt {
+  font-weight: 600;
+  color: #8b8594;
+}
+
+.fa-reserva-summary dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Éxito (el error general usa .fa-login-error de login.css) */
+.fa-reserva-ok {
+  display: block;
+  min-height: 18px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: #3fae72;
+}
+
+
+/* ============================================================
+   6. RESPONSIVE Y ACCESIBILIDAD
+   ============================================================ */
+
+@media (max-width: 560px) {
+  .fa-room-options,
+  .fa-reserva-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-room-card,
+  .fa-slot span,
+  .fa-stepper-btn {
+    transition: none;
+  }
+
+  .fa-room-option:hover .fa-room-card {
+    transform: none;
+  }
+}

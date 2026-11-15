@@ -1,0 +1,153 @@
+/* ============================================================
+   FARMEAR AURA — registro.css
+   Extras para el formulario de creación de usuario.
+
+   Se apoya en login.css (tarjeta, campos, botones, etc.), así
+   que cargalo DESPUÉS de ese archivo:
+     <link rel="stylesheet" href="assets/css/styles.css">
+     <link rel="stylesheet" href="assets/css/login.css">
+     <link rel="stylesheet" href="assets/css/registro.css">
+
+   Acá solo está lo que el registro necesita de más:
+   tarjeta más ancha, columnas, indicador de fuerza de contraseña,
+   estados válido/inválido y checkbox de términos.
+   ============================================================ */
+
+
+/* ============================================================
+   1. TARJETA Y COLUMNAS
+   ============================================================ */
+
+/* Agregala junto a fa-login:  <main class="fa-login fa-login-wide"> */
+.fa-login-wide {
+  max-width: 460px;
+}
+
+/* Dos campos lado a lado (ej: nombre y apellido) */
+.fa-login-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 14px;
+}
+
+
+/* ============================================================
+   2. AYUDAS Y MENSAJES POR CAMPO
+   ============================================================ */
+
+/* Texto de ayuda bajo un campo (ej: "Mínimo 8 caracteres") */
+.fa-login-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #77717e;
+}
+
+/* Error específico de un campo */
+.fa-login-field-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #e5645a;
+}
+
+.fa-login-field-error:empty {
+  display: none;
+}
+
+
+/* ============================================================
+   3. ESTADO VÁLIDO
+   (el estado inválido ya está en login.css)
+   ============================================================ */
+
+.fa-login-input.is-valid {
+  border-color: #3fae72;
+  background-image: none;
+}
+
+.fa-login-input.is-valid:focus {
+  box-shadow: 0 0 0 4px rgba(63, 174, 114, .15);
+}
+
+
+/* ============================================================
+   4. CONTRASEÑA: OJITO E INDICADOR DE FUERZA
+   ============================================================ */
+
+/* Envuelve el input y el botón del ojito para que el botón quede
+   alineado con el input aunque haya contenido debajo. */
+.fa-login-pass {
+  position: relative;
+}
+
+/* Cuatro barritas; main JS pone data-level="0" a "4" */
+.fa-login-strength {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.fa-login-strength i {
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, .12);
+  transition: background .25s;
+}
+
+.fa-login-strength[data-level="1"] i:nth-child(-n+1) { background: #e5645a; }
+.fa-login-strength[data-level="2"] i:nth-child(-n+2) { background: #e0903a; }
+.fa-login-strength[data-level="3"] i:nth-child(-n+3) { background: var(--gold2, #e2bb3d); }
+.fa-login-strength[data-level="4"] i:nth-child(-n+4) { background: #3fae72; }
+
+.fa-login-strength-label {
+  display: block;
+  min-height: 14px;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #8b8594;
+}
+
+
+/* ============================================================
+   5. TÉRMINOS Y CONDICIONES
+   ============================================================ */
+
+.fa-login-terms {
+  align-items: flex-start;   /* checkbox alineado con la primera línea */
+  margin: 4px 0 22px;
+  line-height: 1.5;
+}
+
+.fa-login-terms input {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.fa-login-terms a {
+  font-weight: 700;
+  color: var(--gold, #c9a227);
+}
+
+.fa-login-terms a:hover {
+  color: var(--gold2, #e2bb3d);
+  text-decoration: underline;
+}
+
+
+/* ============================================================
+   6. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 480px) {
+  .fa-login-cols {
+    grid-template-columns: 1fr;   /* una columna en celular */
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-login-strength i {
+    transition: none;
+  }
+}
