@@ -52,12 +52,12 @@
       <!--<a class="navbar-brand fa-brand" href="#inicio">
         <span>✦</span> FARMEAR <b>AURA</b>
       </a>-->
-      
+
       <!--Aca separamos las palabras e icono por clase para poder darle un estilo diferente a cada uno-->
       <a class="navbar-brand fa-brand" href="#inicio">
-      <span class="fa-icon">✦</span>
-      <span class="fa-farmear">FARMEAR</span>
-      <b class="fa-aura">AURA</b>
+        <span class="fa-icon">✦</span>
+        <span class="fa-farmear">FARMEAR</span>
+        <b class="fa-aura">AURA</b>
       </a>
 
       <!-- Bootstrap maneja el toggle de este botón automáticamente
@@ -74,12 +74,13 @@
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#inicio" data-section="inicio">INICIO</a></li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#salas" data-section="salas">SALAS</a></li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#precios" data-section="precios">PRECIOS</a></li>
-          <li class="nav-item"><a class="nav-link fa-nav-link" href="paginas/login.html" data-section="reservas">INICIAR SESIÓN</a>
+          <li class="nav-item"><a class="nav-link fa-nav-link" href="paginas/login.html" data-section="reservas">INICIAR
+              SESIÓN</a>
           </li>
           <li class="nav-item"><a class="nav-link fa-nav-link" href="#contacto" data-section="contacto">CONTACTO</a>
           </li>
           <li class="nav-item">
-            <button id = 'btn-cargar' class="nav-link fa-nav-cta" popovertarget="popup-dinamico"> RESERVAR </button>
+            <button id='btn-cargar' class="nav-link fa-nav-cta" popovertarget="popup-dinamico"> RESERVAR </button>
           </li>
         </ul>
       </div>
@@ -90,17 +91,17 @@
 
   <main>
 
-      <div id="popup-dinamico" popover>
-        <iframe src="paginas/reserva.html" title="Formulario de reserva"></iframe>
-      </div>
+    <div id="popup-dinamico" popover>
+      <iframe src="paginas/reserva.html" title="Formulario de reserva"></iframe>
+    </div>
 
     <script>
-        document.querySelectorAll("[data-abrir-reserva]").forEach(el => {
+      document.querySelectorAll("[data-abrir-reserva]").forEach(el => {
         el.addEventListener("click", (e) => {
-        e.preventDefault();
-        document.getElementById("popup-dinamico").showPopover();
+          e.preventDefault();
+          document.getElementById("popup-dinamico").showPopover();
         });
-        });
+      });
 
     </script>
 
@@ -136,15 +137,7 @@
 
           <!-- d-none d-lg-block: Bootstrap oculta este bloque en
                pantallas menores a lg (992px) -->
-          <div class="col-lg-4 d-none d-lg-block">
-            <div class="fa-mission">
-              <small>MISIÓN ABIERTA</small>
-              <div class="fa-mission-icon">🔒</div>
-              <h2>¿Podés<br><span>escapar?</span></h2>
-              <p>Elegí una sala y descubrí cuánto dura tu suerte.</p>
-              <a href="#reservas">Elegir sala →</a>
-            </div>
-          </div>
+
 
         </div>
       </div>
@@ -271,41 +264,41 @@
          Custom: fa-pricing, fa-price-card, fa-price-featured
          =================================================== -->
     <section class="fa-section fa-pricing" id="precios">
-        <div class="container">
+      <div class="container">
 
-          <div class="fa-price-tabs" role="group" aria-label="Tarifas">
-            <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab"
-            data-target="precio-clasica" aria-controls="precio-clasica" aria-expanded="false">
+        <div class="fa-price-tabs" role="group" aria-label="Tarifas">
+          <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab" data-target="precio-clasica"
+            aria-controls="precio-clasica" aria-expanded="false">
             Experiencia clásica
-            </button>
-            <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab"
-            data-target="precio-vip" aria-controls="precio-vip" aria-expanded="false">
+          </button>
+          <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab" data-target="precio-vip"
+            aria-controls="precio-vip" aria-expanded="false">
             Cumpleaños VIP
-            </button>
-            <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab"
-            data-target="precio-team" aria-controls="precio-team" aria-expanded="false">
+          </button>
+          <button type="button" class="btn fa-btn fa-btn-dark fa-price-tab" data-target="precio-team"
+            aria-controls="precio-team" aria-expanded="false">
             Team building
-           </button>
+          </button>
+        </div>
+
+        <div class="row g-3 justify-content-center align-items-center">
+
+          <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-clasica">
+
+            <article class="fa-price-card">
+              <small>EXPERIENCIA CLÁSICA</small>
+              <h3>Sesión individual</h3>
+              <strong>$30.000<i>/persona</i></strong>
+              <ul>
+                <li>✓ Una sala a elección</li>
+                <li>✓ Game Master</li>
+                <li>✓ Hasta 8 personas</li>
+              </ul>
+              <a class="btn fa-btn fa-btn-dark" href="#contacto">Consultar</a>
+            </article>
           </div>
 
-           <div class="row g-3 justify-content-center align-items-center">
-                      
-              <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-clasica">
-            
-                <article class="fa-price-card">
-                <small>EXPERIENCIA CLÁSICA</small>
-                <h3>Sesión individual</h3>
-                <strong>$30.000<i>/persona</i></strong>
-                <ul>
-                  <li>✓ Una sala a elección</li>
-                  <li>✓ Game Master</li>
-                  <li>✓ Hasta 8 personas</li>
-                </ul>
-                <a class="btn fa-btn fa-btn-dark" href="#contacto">Consultar</a>
-                </article>
-              </div>
-
-          <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-vip">     
+          <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-vip">
             <article class="fa-price-card">
               <small>CELEBRACIÓN</small>
               <h3>Cumpleaños VIP</h3>
@@ -320,7 +313,7 @@
             </article>
           </div>
 
-          <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-team">    
+          <div class="col-lg-4 col-md-8 fa-price-panel" id="precio-team">
             <article class="fa-price-card">
               <small>EMPRESAS</small>
               <h3>Team Building</h3>
@@ -409,15 +402,13 @@
         </div>
       </div>
 
-      <a class="whatsapp" id="btnWhatsapp"
-          href="https://wa.me/549XXXXXXXXXX?text=Hola!"
-          target="_blank" rel="noopener"
-          aria-label="Escribinos por WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
+      <a class="whatsapp" id="btnWhatsapp" href="https://wa.me/549XXXXXXXXXX?text=Hola!" target="_blank" rel="noopener"
+        aria-label="Escribinos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
       </a>
     </section>
-          
-   
+
+
 
   </main>
 
