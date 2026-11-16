@@ -617,8 +617,8 @@ Proyecto desarrollado por el equipo de **Seminario de Actualización en Tecnolog
 | 2 | **Ignacio Barbieri** | [@ipopotamo](https://github.com/ipopotamo) |
 | 3 | **Gabriela Marinero** | [@GabyMarinero](https://github.com/GabyMarinero) |
 | 4 | **Braian Valenzuela** | [@braiandejesusvalenzuela](https://github.com/braiandejesusvalenzuela) |
-| 5 | **Nadia Lazarte** | *Usuario de GitHub pendiente* |
-| 6 | **Guido Tello** | *Usuario de GitHub pendiente* |
+| 5 | **Nadia Lazarte** |  [@Mikixzz](https://github.com/Mikixzz) |
+| 6 | **Guido Tello** | [@Guiditooo](https://github.com/Guiditooo) |
 
 ### Reconocimiento especial
 
