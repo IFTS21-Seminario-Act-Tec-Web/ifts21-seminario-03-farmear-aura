@@ -56,7 +56,6 @@ El repositorio evolucionó desde un prototipo web estático hacia una aplicació
 | **Frontend** | SPA en `public/` con HTML5, Bootstrap 5.3 y estilos propios con prefijo `.fa-*`. |
 | **Backend** | Python 3, FastAPI y Uvicorn; sirve la API bajo `/api` y los archivos estáticos de `public/`. |
 | **Datos** | MySQL 8.x, base `farmear_aura`, con 5 tablas relacionales y datos iniciales. |
-| **Documentación de API** | Swagger UI (`/docs`) y ReDoc (`/redoc`) generados automáticamente. |
 
 ---
 
@@ -77,10 +76,6 @@ Referencia de estados: ![IMPLEMENTADO](https://img.shields.io/badge/IMPLEMENTADO
 | Servidor FastAPI + `StaticFiles` | ![IMPLEMENTADO](https://img.shields.io/badge/IMPLEMENTADO-2ea44f?style=flat-square) | `main.py`. |
 | Endpoint `GET /api/salas` | ![IMPLEMENTADO](https://img.shields.io/badge/IMPLEMENTADO-2ea44f?style=flat-square) | Consulta la tabla `salas` con PyMySQL. |
 | Esquema SQL y datos iniciales | ![IMPLEMENTADO](https://img.shields.io/badge/IMPLEMENTADO-2ea44f?style=flat-square) | Script `.sql` (volcado de HeidiSQL, MySQL 8.4.3). |
-| Endpoints de reservas, clientes, consultas y autenticación | ![PENDIENTE](https://img.shields.io/badge/PENDIENTE-f1c40f?style=flat-square) | No existen routers para estos dominios. |
-| Envío de formularios a la API con `fetch()` | ![PENDIENTE](https://img.shields.io/badge/PENDIENTE-f1c40f?style=flat-square) | Los formularios hoy validan en el navegador y simulan el envío. |
-| Autenticación real (login y registro contra la BD) | ![PENDIENTE](https://img.shields.io/badge/PENDIENTE-f1c40f?style=flat-square) | No hay tabla de usuarios con credenciales ni endpoints de auth. |
-| Configuración por variables de entorno | ![PENDIENTE](https://img.shields.io/badge/PENDIENTE-f1c40f?style=flat-square) | `python-dotenv` está en las dependencias, pero la conexión usa valores fijos. |
 
 ---
 
@@ -220,8 +215,6 @@ Archivos: `main.py` y `public/assets/fast_api/conexion.py` — ![IMPLEMENTADO](h
 
 ```text
 fastapi>=0.115
-uvicorn[standard]>=0.30
-python-dotenv>=1.0
 fastapi[standard]
 pymysql
 ```
@@ -229,9 +222,7 @@ pymysql
 | Paquete | Rol |
 |---|---|
 | `fastapi` / `fastapi[standard]` | Framework web asíncrono con OpenAPI automático. |
-| `uvicorn[standard]` | Servidor ASGI. |
-| `pymysql` | Conector Python para MySQL. |
-| `python-dotenv` | Reservado para cargar variables de entorno (hoy sin uso en el código). |
+| `pymysql` | Conector Python para MySQL. ||
 
 ### 5.2 Punto de entrada — `main.py`
 
@@ -241,7 +232,6 @@ pymysql
 
 ▸ Monta `public/` en `/` con `StaticFiles(directory="public", html=True)` **al final**, para no interceptar `/api/*`.
 
-▸ No configura CORS: frontend y API comparten origen.
 
 ```python
 from fastapi import FastAPI
@@ -290,15 +280,6 @@ Ejemplo de respuesta:
 ]
 ```
 
-### 5.5 Documentación interactiva nativa
-
-| Interfaz | URL | Descripción |
-|---|---|---|
-| Swagger UI | [`http://127.0.0.1:8000/docs`](http://127.0.0.1:8000/docs) | Explorar y probar los endpoints. |
-| ReDoc | [`http://127.0.0.1:8000/redoc`](http://127.0.0.1:8000/redoc) | Documentación de lectura. |
-| OpenAPI JSON | [`http://127.0.0.1:8000/openapi.json`](http://127.0.0.1:8000/openapi.json) | Esquema crudo. |
-
----
 
 ## 6. Base de Datos
 
@@ -382,7 +363,7 @@ ifts21-seminario-03-farmear-aura/
 ├── README.md                        # Este documento
 │
 ├── docs/
-│   └── screenshots/                 # Capturas para la galería (a completar)
+│   └── screenshots/                 # Capturas para la galería
 │       ├── desktop-hero.png
 │       ├── auth-reservas.png
 │       └── mobile-nav.png
@@ -442,7 +423,6 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 ```
 
-> Si PowerShell bloquea scripts: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
 **Windows — CMD**
 
@@ -482,39 +462,6 @@ copy .env.example .env
 # Linux / macOS
 cp .env.example .env
 ```
-
-> **Importante:** en la versión actual, `conexion.py` usa valores fijos (`127.0.0.1:3306`, usuario `root`, contraseña vacía, base `farmear_aura`) y **no lee** el archivo `.env`. Si tu instancia de MySQL usa otras credenciales, editá la función `conectar()`.
-
-### Paso 5 — Ejecutar el servidor
-
-```bash
-uvicorn main:app --reload
-```
-
-Ejecutar el comando desde la raíz del proyecto, con el entorno virtual activo y MySQL en marcha.
-
-### URLs de acceso rápido
-
-| Recurso | URL |
-|---|---|
-| Sitio web (SPA) | http://127.0.0.1:8000 |
-| Login | http://127.0.0.1:8000/paginas/login.html |
-| Registro | http://127.0.0.1:8000/paginas/registro.html |
-| Reserva | http://127.0.0.1:8000/paginas/reserva.html |
-| Endpoint de salas | http://127.0.0.1:8000/api/salas |
-| Swagger UI | http://127.0.0.1:8000/docs |
-| ReDoc | http://127.0.0.1:8000/redoc |
-
-### Solución de problemas
-
-| Problema | Solución |
-|---|---|
-| `uvicorn` no se reconoce | Activar el `venv` o usar `python -m uvicorn main:app --reload`. |
-| `/api/salas` responde 500 | Verificar que MySQL esté activo, que la base `farmear_aura` exista y que las credenciales de `conectar()` sean correctas. |
-| `ModuleNotFoundError: pymysql` | Ejecutar `pip install -r requirements.txt` con el `venv` activo. |
-| Puerto 8000 ocupado | `uvicorn main:app --reload --port 8001`. |
-| Imágenes de salas sin cargar | Revisar nombres y extensiones en `public/assets/img/` (Linux distingue mayúsculas). |
-
 ---
 
 ## 9. Galería Visual
@@ -536,7 +483,6 @@ Ejecutar el comando desde la raíz del proyecto, con el entorno virtual activo y
   </tr>
 </table>
 
-> Algunos visores de Markdown no renderizan `.jfif` ni `.avif`. Si una imagen no se muestra, convertila a `.jpg` o `.webp`.
 
 ### 9.2 Capturas de la interfaz
 
@@ -589,22 +535,6 @@ Las capturas se guardan en `docs/screenshots/`.
 
 ▸ **Campo no unificado:** la reserva envía `Nombre y apellido` en un solo campo, mientras `clientes` separa `nombre` y `apellido`.
 
-### Roadmap
-
-- [x] Frontend SPA responsivo con Bootstrap 5.3 y estilos propios `.fa-*`
-- [x] Páginas de login, registro y reserva (interfaz y validación en cliente)
-- [x] Esquema relacional MySQL con datos iniciales
-- [x] Servidor FastAPI sirviendo el frontend y `GET /api/salas`
-- [ ] Mover los routers a `src/routes/` y separar capa de datos
-- [ ] Cargar credenciales de BD desde `.env` con `python-dotenv`
-- [ ] Endpoints de reservas, horarios disponibles, clientes y consultas
-- [ ] Tabla de usuarios con contraseñas hasheadas y endpoints de login/registro
-- [ ] Integración de los formularios con la API mediante `fetch()`
-- [ ] Horarios de la reserva generados desde la tabla `horarios`
-- [ ] Unificar la escala de dificultad entre la BD y la interfaz
-- [ ] Tests automatizados con `pytest` y `TestClient`
-- [ ] Despliegue en la nube
-
 ---
 
 ## 11. Equipo y Créditos
@@ -617,8 +547,9 @@ Proyecto desarrollado por el equipo de **Seminario de Actualización en Tecnolog
 | 2 | **Ignacio Barbieri** | [@ipopotamo](https://github.com/ipopotamo) |
 | 3 | **Gabriela Marinero** | [@GabyMarinero](https://github.com/GabyMarinero) |
 | 4 | **Braian Valenzuela** | [@braiandejesusvalenzuela](https://github.com/braiandejesusvalenzuela) |
-| 5 | **Nadia Lazarte** | *Usuario de GitHub pendiente* |
-| 6 | **Guido Tello** | *Usuario de GitHub pendiente* |
+| 5 | **Nadia Lazarte** | [@Mikixzz](https://github.com/Mikixzz) |
+| 6 | **Guido Tello** | [@Guiditooo](https://github.com/Guiditooo) |
+|
 
 ### Reconocimiento especial
 
